@@ -1,0 +1,726 @@
+[dotenv@17.2.2] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+{"level":30,"time":1759393601121,"pid":57835,"hostname":"liaodeMac-mini.local","msg":"Feed update tasks are disabled by FEEDS_DISABLE_TASKS"}
+{"level":30,"time":1759393601126,"pid":57835,"hostname":"liaodeMac-mini.local","msg":"Server listening at http://127.0.0.1:3002"}
+{"level":30,"time":1759393601126,"pid":57835,"hostname":"liaodeMac-mini.local","msg":"Server listening at http://10.244.81.76:3002"}
+{"level":30,"time":1759393601126,"pid":57835,"hostname":"liaodeMac-mini.local","msg":"Server listening at http://192.168.2.1:3002"}
+Creating external API tables...
+ensureSearchIndex error: error: must be owner of table dim_stock
+    at /Users/liao/infostream-mvp/server/node_modules/pg/lib/client.js:545:17
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async ensureSearchIndex (/Users/liao/infostream-mvp/server/src/modules/feeds/routes.ts:73:5) {
+  length: 92,
+  severity: 'ERROR',
+  code: '42501',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'aclchk.c',
+  line: '2952',
+  routine: 'aclcheck_error'
+}
+✅ External API tables created successfully
+{"level":30,"time":1759393639801,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?limit=3","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58424},"msg":"incoming request"}
+{"level":30,"time":1759393640167,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1","res":{"statusCode":200},"responseTime":366.13379199802876,"msg":"request completed"}
+{"level":30,"time":1759393652470,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2","req":{"method":"GET","url":"/api/feeds/rankings/volume?limit=3","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58426},"msg":"incoming request"}
+{"level":30,"time":1759393652629,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2","res":{"statusCode":200},"responseTime":159.2664999961853,"msg":"request completed"}
+{"level":30,"time":1759393666023,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3","req":{"method":"GET","url":"/api/feeds/rankings/amount?limit=3","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58429},"msg":"incoming request"}
+{"level":30,"time":1759393666137,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3","res":{"statusCode":200},"responseTime":114.32270799577236,"msg":"request completed"}
+{"level":30,"time":1759393761438,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58451},"msg":"incoming request"}
+{"level":30,"time":1759393761439,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58452},"msg":"incoming request"}
+{"level":30,"time":1759393761439,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-6","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58453},"msg":"incoming request"}
+{"level":30,"time":1759393761440,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-7","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58454},"msg":"incoming request"}
+{"level":30,"time":1759393761440,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-8","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58455},"msg":"incoming request"}
+{"level":30,"time":1759393761440,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-9","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58456},"msg":"incoming request"}
+{"level":30,"time":1759393761840,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5","res":{"statusCode":200},"responseTime":401.46491600573063,"msg":"request completed"}
+{"level":30,"time":1759393761844,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4","res":{"statusCode":200},"responseTime":405.4851250052452,"msg":"request completed"}
+{"level":30,"time":1759393761845,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-a","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58464},"msg":"incoming request"}
+{"level":30,"time":1759393761847,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-6","res":{"statusCode":200},"responseTime":407.3538750112057,"msg":"request completed"}
+{"level":30,"time":1759393761848,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-b","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58466},"msg":"incoming request"}
+{"level":30,"time":1759393761850,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-c","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759393761433","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58468},"msg":"incoming request"}
+{"level":30,"time":1759393761865,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-c","res":{"statusCode":200},"responseTime":14.838708996772766,"msg":"request completed"}
+{"level":30,"time":1759393761867,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-d","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759393761434","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58470},"msg":"incoming request"}
+{"level":30,"time":1759393761881,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-d","res":{"statusCode":200},"responseTime":13.173457995057106,"msg":"request completed"}
+{"level":30,"time":1759393761888,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-7","res":{"statusCode":200},"responseTime":448.3002500087023,"msg":"request completed"}
+{"level":30,"time":1759393761979,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-a","res":{"statusCode":200},"responseTime":133.88929200172424,"msg":"request completed"}
+{"level":30,"time":1759393761982,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-b","res":{"statusCode":200},"responseTime":134.02495799958706,"msg":"request completed"}
+{"level":30,"time":1759393762005,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-9","res":{"statusCode":200},"responseTime":564.472000002861,"msg":"request completed"}
+{"level":30,"time":1759393762006,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-8","res":{"statusCode":200},"responseTime":566.1389160007238,"msg":"request completed"}
+{"level":30,"time":1759393763813,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-e","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58478},"msg":"incoming request"}
+{"level":30,"time":1759393763814,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-f","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58479},"msg":"incoming request"}
+{"level":30,"time":1759393763815,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-g","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58480},"msg":"incoming request"}
+{"level":30,"time":1759393763816,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-h","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58481},"msg":"incoming request"}
+{"level":30,"time":1759393763816,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-i","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58482},"msg":"incoming request"}
+{"level":30,"time":1759393763817,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-j","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58483},"msg":"incoming request"}
+{"level":30,"time":1759393764014,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-g","res":{"statusCode":200},"responseTime":199.14883299171925,"msg":"request completed"}
+{"level":30,"time":1759393764017,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-e","res":{"statusCode":200},"responseTime":204.1546249985695,"msg":"request completed"}
+{"level":30,"time":1759393764018,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-f","res":{"statusCode":200},"responseTime":203.52004198729992,"msg":"request completed"}
+{"level":30,"time":1759393764018,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-k","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58485},"msg":"incoming request"}
+{"level":30,"time":1759393764021,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-l","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58487},"msg":"incoming request"}
+{"level":30,"time":1759393764022,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-m","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759393763811","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58489},"msg":"incoming request"}
+{"level":30,"time":1759393764034,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-m","res":{"statusCode":200},"responseTime":11.939167007803917,"msg":"request completed"}
+{"level":30,"time":1759393764072,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-h","res":{"statusCode":200},"responseTime":256.1114170104265,"msg":"request completed"}
+{"level":30,"time":1759393764155,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-j","res":{"statusCode":200},"responseTime":338.1152079999447,"msg":"request completed"}
+{"level":30,"time":1759393764172,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-l","res":{"statusCode":200},"responseTime":150.73379200696945,"msg":"request completed"}
+{"level":30,"time":1759393764172,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-k","res":{"statusCode":200},"responseTime":153.4756249934435,"msg":"request completed"}
+{"level":30,"time":1759393764181,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-i","res":{"statusCode":200},"responseTime":364.49704200029373,"msg":"request completed"}
+{"level":30,"time":1759393764879,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-n","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58497},"msg":"incoming request"}
+{"level":30,"time":1759393764880,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-o","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58498},"msg":"incoming request"}
+{"level":30,"time":1759393764881,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-p","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58499},"msg":"incoming request"}
+{"level":30,"time":1759393764881,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-q","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58500},"msg":"incoming request"}
+{"level":30,"time":1759393764883,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-r","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58501},"msg":"incoming request"}
+{"level":30,"time":1759393764883,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-s","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58502},"msg":"incoming request"}
+{"level":30,"time":1759393765081,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-n","res":{"statusCode":200},"responseTime":201.95745900273323,"msg":"request completed"}
+{"level":30,"time":1759393765083,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-t","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58504},"msg":"incoming request"}
+{"level":30,"time":1759393765092,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-o","res":{"statusCode":200},"responseTime":211.4556249976158,"msg":"request completed"}
+{"level":30,"time":1759393765094,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-p","res":{"statusCode":200},"responseTime":212.78824999928474,"msg":"request completed"}
+{"level":30,"time":1759393765095,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-u","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58506},"msg":"incoming request"}
+{"level":30,"time":1759393765096,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-v","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759393764876","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58508},"msg":"incoming request"}
+{"level":30,"time":1759393765111,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-v","res":{"statusCode":200},"responseTime":14.79712499678135,"msg":"request completed"}
+{"level":30,"time":1759393765113,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-w","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759393764877","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58510},"msg":"incoming request"}
+{"level":30,"time":1759393765131,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-w","res":{"statusCode":200},"responseTime":17.11216700077057,"msg":"request completed"}
+{"level":30,"time":1759393765192,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-q","res":{"statusCode":200},"responseTime":310.3749579936266,"msg":"request completed"}
+{"level":30,"time":1759393765235,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-r","res":{"statusCode":200},"responseTime":352.5058750063181,"msg":"request completed"}
+{"level":30,"time":1759393765236,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-t","res":{"statusCode":200},"responseTime":152.12583400309086,"msg":"request completed"}
+{"level":30,"time":1759393765236,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-s","res":{"statusCode":200},"responseTime":352.85870799422264,"msg":"request completed"}
+{"level":30,"time":1759393765313,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-u","res":{"statusCode":200},"responseTime":218.16070799529552,"msg":"request completed"}
+{"level":30,"time":1759393765699,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-x","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58518},"msg":"incoming request"}
+{"level":30,"time":1759393765700,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-y","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58519},"msg":"incoming request"}
+{"level":30,"time":1759393765701,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-z","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58520},"msg":"incoming request"}
+{"level":30,"time":1759393765702,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-10","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58521},"msg":"incoming request"}
+{"level":30,"time":1759393765702,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-11","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58522},"msg":"incoming request"}
+{"level":30,"time":1759393765702,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-12","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58523},"msg":"incoming request"}
+{"level":30,"time":1759393765916,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-x","res":{"statusCode":200},"responseTime":216.48141700029373,"msg":"request completed"}
+{"level":30,"time":1759393765918,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-13","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58525},"msg":"incoming request"}
+{"level":30,"time":1759393765922,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-y","res":{"statusCode":200},"responseTime":221.42604199051857,"msg":"request completed"}
+{"level":30,"time":1759393765925,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-14","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58527},"msg":"incoming request"}
+{"level":30,"time":1759393765929,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-z","res":{"statusCode":200},"responseTime":228.270958006382,"msg":"request completed"}
+{"level":30,"time":1759393765932,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-15","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759393765696","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58529},"msg":"incoming request"}
+{"level":30,"time":1759393765954,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-15","res":{"statusCode":200},"responseTime":22.04416699707508,"msg":"request completed"}
+{"level":30,"time":1759393765994,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-10","res":{"statusCode":200},"responseTime":292.5651669949293,"msg":"request completed"}
+{"level":30,"time":1759393766019,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-12","res":{"statusCode":200},"responseTime":316.7926670014858,"msg":"request completed"}
+{"level":30,"time":1759393766063,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-13","res":{"statusCode":200},"responseTime":144.328458994627,"msg":"request completed"}
+{"level":30,"time":1759393766066,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-14","res":{"statusCode":200},"responseTime":140.94641599059105,"msg":"request completed"}
+{"level":30,"time":1759393766118,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-11","res":{"statusCode":200},"responseTime":415.5337910056114,"msg":"request completed"}
+{"level":30,"time":1759393766493,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-16","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58537},"msg":"incoming request"}
+{"level":30,"time":1759393766494,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-17","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58538},"msg":"incoming request"}
+{"level":30,"time":1759393766495,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-18","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58539},"msg":"incoming request"}
+{"level":30,"time":1759393766496,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-19","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58540},"msg":"incoming request"}
+{"level":30,"time":1759393766496,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1a","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58541},"msg":"incoming request"}
+{"level":30,"time":1759393766497,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1b","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58542},"msg":"incoming request"}
+{"level":30,"time":1759393766687,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-17","res":{"statusCode":200},"responseTime":192.3220829963684,"msg":"request completed"}
+{"level":30,"time":1759393766688,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-16","res":{"statusCode":200},"responseTime":194.57266700267792,"msg":"request completed"}
+{"level":30,"time":1759393766689,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1c","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58544},"msg":"incoming request"}
+{"level":30,"time":1759393766691,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1d","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58546},"msg":"incoming request"}
+{"level":30,"time":1759393766695,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-18","res":{"statusCode":200},"responseTime":199.33124999701977,"msg":"request completed"}
+{"level":30,"time":1759393766697,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1e","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759393766490","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58548},"msg":"incoming request"}
+{"level":30,"time":1759393766711,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1e","res":{"statusCode":200},"responseTime":14.311292007565498,"msg":"request completed"}
+{"level":30,"time":1759393766766,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-19","res":{"statusCode":200},"responseTime":270.23420798778534,"msg":"request completed"}
+{"level":30,"time":1759393766826,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1c","res":{"statusCode":200},"responseTime":136.310708001256,"msg":"request completed"}
+{"level":30,"time":1759393766830,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1b","res":{"statusCode":200},"responseTime":333.2746659964323,"msg":"request completed"}
+{"level":30,"time":1759393766834,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1d","res":{"statusCode":200},"responseTime":143.65487499535084,"msg":"request completed"}
+{"level":30,"time":1759393766898,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1a","res":{"statusCode":200},"responseTime":401.0978749990463,"msg":"request completed"}
+{"level":30,"time":1759393767267,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1f","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58556},"msg":"incoming request"}
+{"level":30,"time":1759393767270,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1g","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58557},"msg":"incoming request"}
+{"level":30,"time":1759393767271,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1h","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58558},"msg":"incoming request"}
+{"level":30,"time":1759393767273,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1i","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58559},"msg":"incoming request"}
+{"level":30,"time":1759393767275,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1j","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58560},"msg":"incoming request"}
+{"level":30,"time":1759393767275,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1k","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58561},"msg":"incoming request"}
+{"level":30,"time":1759393767461,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1f","res":{"statusCode":200},"responseTime":193.74487499892712,"msg":"request completed"}
+{"level":30,"time":1759393767464,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1h","res":{"statusCode":200},"responseTime":192.84700000286102,"msg":"request completed"}
+{"level":30,"time":1759393767464,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1l","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58563},"msg":"incoming request"}
+{"level":30,"time":1759393767466,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1g","res":{"statusCode":200},"responseTime":196.06645800173283,"msg":"request completed"}
+{"level":30,"time":1759393767467,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1m","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58565},"msg":"incoming request"}
+{"level":30,"time":1759393767469,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1n","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759393767266","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58567},"msg":"incoming request"}
+{"level":30,"time":1759393767485,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1n","res":{"statusCode":200},"responseTime":16.127917006611824,"msg":"request completed"}
+{"level":30,"time":1759393767552,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1k","res":{"statusCode":200},"responseTime":276.4402090013027,"msg":"request completed"}
+{"level":30,"time":1759393767615,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1m","res":{"statusCode":200},"responseTime":147.86979100108147,"msg":"request completed"}
+{"level":30,"time":1759393767616,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1l","res":{"statusCode":200},"responseTime":151.32908299565315,"msg":"request completed"}
+{"level":30,"time":1759393767625,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1j","res":{"statusCode":200},"responseTime":350.7318329960108,"msg":"request completed"}
+{"level":30,"time":1759393767649,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1i","res":{"statusCode":200},"responseTime":376.24070800840855,"msg":"request completed"}
+{"level":30,"time":1759393768037,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1o","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58575},"msg":"incoming request"}
+{"level":30,"time":1759393768038,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1p","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58576},"msg":"incoming request"}
+{"level":30,"time":1759393768039,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1q","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58577},"msg":"incoming request"}
+{"level":30,"time":1759393768039,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1r","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58578},"msg":"incoming request"}
+{"level":30,"time":1759393768040,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1s","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58579},"msg":"incoming request"}
+{"level":30,"time":1759393768041,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1t","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58580},"msg":"incoming request"}
+{"level":30,"time":1759393768243,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1o","res":{"statusCode":200},"responseTime":206.4223749935627,"msg":"request completed"}
+{"level":30,"time":1759393768246,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1q","res":{"statusCode":200},"responseTime":206.7125840038061,"msg":"request completed"}
+{"level":30,"time":1759393768246,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1u","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58582},"msg":"incoming request"}
+{"level":30,"time":1759393768247,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1p","res":{"statusCode":200},"responseTime":209.04266600310802,"msg":"request completed"}
+{"level":30,"time":1759393768249,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1v","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58584},"msg":"incoming request"}
+{"level":30,"time":1759393768250,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1w","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759393768035","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58586},"msg":"incoming request"}
+{"level":30,"time":1759393768267,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1w","res":{"statusCode":200},"responseTime":16.272541999816895,"msg":"request completed"}
+{"level":30,"time":1759393768318,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1r","res":{"statusCode":200},"responseTime":278.279458001256,"msg":"request completed"}
+{"level":30,"time":1759393768399,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1v","res":{"statusCode":200},"responseTime":150.54983399808407,"msg":"request completed"}
+{"level":30,"time":1759393768399,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1u","res":{"statusCode":200},"responseTime":152.99337500333786,"msg":"request completed"}
+{"level":30,"time":1759393768400,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1t","res":{"statusCode":200},"responseTime":359.6212079972029,"msg":"request completed"}
+{"level":30,"time":1759393768420,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1s","res":{"statusCode":200},"responseTime":379.748541995883,"msg":"request completed"}
+{"level":30,"time":1759393835124,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1x","req":{"method":"GET","url":"/api/feeds/hot?limit=3","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58601},"msg":"incoming request"}
+{"level":30,"time":1759393835167,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1x","res":{"statusCode":200},"responseTime":43.42879098653793,"msg":"request completed"}
+{"level":30,"time":1759393882391,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1y","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58621},"msg":"incoming request"}
+{"level":30,"time":1759393882392,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1z","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58622},"msg":"incoming request"}
+{"level":30,"time":1759393882398,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-20","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58629},"msg":"incoming request"}
+{"level":30,"time":1759393882398,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-21","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58630},"msg":"incoming request"}
+{"level":30,"time":1759393882398,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-22","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58631},"msg":"incoming request"}
+{"level":30,"time":1759393882399,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-23","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58632},"msg":"incoming request"}
+{"level":30,"time":1759393882767,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1y","res":{"statusCode":200},"responseTime":375.78758300840855,"msg":"request completed"}
+{"level":30,"time":1759393882768,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-20","res":{"statusCode":200},"responseTime":370.0082090049982,"msg":"request completed"}
+{"level":30,"time":1759393882768,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-1z","res":{"statusCode":200},"responseTime":375.59191700816154,"msg":"request completed"}
+{"level":30,"time":1759393882771,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-24","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58640},"msg":"incoming request"}
+{"level":30,"time":1759393882772,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-25","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58641},"msg":"incoming request"}
+{"level":30,"time":1759393882772,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-26","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759393882389","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58642},"msg":"incoming request"}
+{"level":30,"time":1759393882791,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-26","res":{"statusCode":200},"responseTime":19.016291990876198,"msg":"request completed"}
+{"level":30,"time":1759393882793,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-27","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759393882390","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58644},"msg":"incoming request"}
+{"level":30,"time":1759393882820,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-27","res":{"statusCode":200},"responseTime":26.73608399927616,"msg":"request completed"}
+{"level":30,"time":1759393882828,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-21","res":{"statusCode":200},"responseTime":430.23766699433327,"msg":"request completed"}
+{"level":30,"time":1759393882875,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-23","res":{"statusCode":200},"responseTime":476.7149579972029,"msg":"request completed"}
+{"level":30,"time":1759393882932,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-24","res":{"statusCode":200},"responseTime":160.46708299219608,"msg":"request completed"}
+{"level":30,"time":1759393882932,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-25","res":{"statusCode":200},"responseTime":160.83208400011063,"msg":"request completed"}
+{"level":30,"time":1759393882946,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-22","res":{"statusCode":200},"responseTime":547.9017499983311,"msg":"request completed"}
+{"level":30,"time":1759393899940,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-28","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58648},"msg":"incoming request"}
+{"level":30,"time":1759393899941,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-29","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58649},"msg":"incoming request"}
+{"level":30,"time":1759393899945,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2a","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58656},"msg":"incoming request"}
+{"level":30,"time":1759393899945,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2b","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58657},"msg":"incoming request"}
+{"level":30,"time":1759393899946,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2c","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759393899936","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58658},"msg":"incoming request"}
+{"level":30,"time":1759393899946,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2d","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759393899937","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58659},"msg":"incoming request"}
+{"level":30,"time":1759393899980,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2c","res":{"statusCode":200},"responseTime":34.46154199540615,"msg":"request completed"}
+{"level":30,"time":1759393899981,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2d","res":{"statusCode":200},"responseTime":34.55604100227356,"msg":"request completed"}
+{"level":30,"time":1759393900194,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-28","res":{"statusCode":200},"responseTime":253.64400000870228,"msg":"request completed"}
+{"level":30,"time":1759393900194,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-29","res":{"statusCode":200},"responseTime":253.48945800960064,"msg":"request completed"}
+{"level":30,"time":1759393900194,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2b","res":{"statusCode":200},"responseTime":249.21050000190735,"msg":"request completed"}
+{"level":30,"time":1759393900219,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2a","res":{"statusCode":200},"responseTime":274.56100000441074,"msg":"request completed"}
+{"level":30,"time":1759393931537,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2e","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58667},"msg":"incoming request"}
+{"level":30,"time":1759393931538,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2f","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58668},"msg":"incoming request"}
+{"level":30,"time":1759393931542,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2g","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58675},"msg":"incoming request"}
+{"level":30,"time":1759393931542,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2h","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58676},"msg":"incoming request"}
+{"level":30,"time":1759393931543,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2i","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759393931533","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58677},"msg":"incoming request"}
+{"level":30,"time":1759393931543,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2j","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759393931534","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58678},"msg":"incoming request"}
+{"level":30,"time":1759393931572,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2j","res":{"statusCode":200},"responseTime":29.37795901298523,"msg":"request completed"}
+{"level":30,"time":1759393931575,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2i","res":{"statusCode":200},"responseTime":32.06595799326897,"msg":"request completed"}
+{"level":30,"time":1759393931785,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2e","res":{"statusCode":200},"responseTime":247.92516599595547,"msg":"request completed"}
+{"level":30,"time":1759393931785,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2g","res":{"statusCode":200},"responseTime":243.40354199707508,"msg":"request completed"}
+{"level":30,"time":1759393931789,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2f","res":{"statusCode":200},"responseTime":251.34541599452496,"msg":"request completed"}
+{"level":30,"time":1759393931813,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2h","res":{"statusCode":200},"responseTime":270.7264170050621,"msg":"request completed"}
+{"level":30,"time":1759393937262,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2k","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58688},"msg":"incoming request"}
+{"level":30,"time":1759393937263,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2l","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58689},"msg":"incoming request"}
+{"level":30,"time":1759393937265,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2m","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58690},"msg":"incoming request"}
+{"level":30,"time":1759393937266,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2n","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58691},"msg":"incoming request"}
+{"level":30,"time":1759393937267,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2o","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759393937253","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58692},"msg":"incoming request"}
+{"level":30,"time":1759393937302,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2o","res":{"statusCode":200},"responseTime":34.19758398830891,"msg":"request completed"}
+{"level":30,"time":1759393937564,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2k","res":{"statusCode":200},"responseTime":301.71008299291134,"msg":"request completed"}
+{"level":30,"time":1759393937565,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2l","res":{"statusCode":200},"responseTime":301.3501249998808,"msg":"request completed"}
+{"level":30,"time":1759393937568,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2m","res":{"statusCode":200},"responseTime":303.2393329888582,"msg":"request completed"}
+{"level":30,"time":1759393937601,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2n","res":{"statusCode":200},"responseTime":335.36866599321365,"msg":"request completed"}
+{"level":30,"time":1759394087477,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2p","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?limit=3","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58697},"msg":"incoming request"}
+{"level":30,"time":1759394087628,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2p","res":{"statusCode":200},"responseTime":150.7896250039339,"msg":"request completed"}
+{"level":30,"time":1759394107536,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2q","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58704},"msg":"incoming request"}
+{"level":30,"time":1759394107537,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2r","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58705},"msg":"incoming request"}
+{"level":30,"time":1759394107538,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2s","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58706},"msg":"incoming request"}
+{"level":30,"time":1759394107538,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2t","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58708},"msg":"incoming request"}
+{"level":30,"time":1759394107539,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2u","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759394107532","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58713},"msg":"incoming request"}
+{"level":30,"time":1759394107587,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2u","res":{"statusCode":200},"responseTime":48.11962500214577,"msg":"request completed"}
+{"level":30,"time":1759394107900,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2s","res":{"statusCode":200},"responseTime":362.0733329951763,"msg":"request completed"}
+{"level":30,"time":1759394107901,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2r","res":{"statusCode":200},"responseTime":363.5741659998894,"msg":"request completed"}
+{"level":30,"time":1759394107901,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2t","res":{"statusCode":200},"responseTime":363.2312079966068,"msg":"request completed"}
+{"level":30,"time":1759394107910,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2q","res":{"statusCode":200},"responseTime":373.76929201185703,"msg":"request completed"}
+{"level":30,"time":1759394152958,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2v","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58737},"msg":"incoming request"}
+{"level":30,"time":1759394152960,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2w","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58738},"msg":"incoming request"}
+{"level":30,"time":1759394152961,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2x","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58739},"msg":"incoming request"}
+{"level":30,"time":1759394152961,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2y","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58740},"msg":"incoming request"}
+{"level":30,"time":1759394152962,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2z","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759394152952","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58741},"msg":"incoming request"}
+{"level":30,"time":1759394152963,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-30","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759394152953","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58742},"msg":"incoming request"}
+{"level":30,"time":1759394153002,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-30","res":{"statusCode":200},"responseTime":39.126666992902756,"msg":"request completed"}
+{"level":30,"time":1759394153004,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2z","res":{"statusCode":200},"responseTime":41.98974999785423,"msg":"request completed"}
+{"level":30,"time":1759394153316,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2y","res":{"statusCode":200},"responseTime":354.3822910040617,"msg":"request completed"}
+{"level":30,"time":1759394153322,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2w","res":{"statusCode":200},"responseTime":361.9337909966707,"msg":"request completed"}
+{"level":30,"time":1759394153322,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2v","res":{"statusCode":200},"responseTime":363.84637500345707,"msg":"request completed"}
+{"level":30,"time":1759394153344,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-2x","res":{"statusCode":200},"responseTime":383.1410000026226,"msg":"request completed"}
+{"level":30,"time":1759394154659,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-31","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58756},"msg":"incoming request"}
+{"level":30,"time":1759394154659,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-32","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58757},"msg":"incoming request"}
+{"level":30,"time":1759394154660,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-33","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58758},"msg":"incoming request"}
+{"level":30,"time":1759394154661,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-34","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58759},"msg":"incoming request"}
+{"level":30,"time":1759394154662,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-35","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759394154654","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58760},"msg":"incoming request"}
+{"level":30,"time":1759394154662,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-36","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759394154655","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58761},"msg":"incoming request"}
+{"level":30,"time":1759394154700,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-36","res":{"statusCode":200},"responseTime":37.34212499856949,"msg":"request completed"}
+{"level":30,"time":1759394154700,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-35","res":{"statusCode":200},"responseTime":38.343874990940094,"msg":"request completed"}
+{"level":30,"time":1759394154850,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-33","res":{"statusCode":200},"responseTime":189.6463340073824,"msg":"request completed"}
+{"level":30,"time":1759394154851,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-31","res":{"statusCode":200},"responseTime":192.09920799732208,"msg":"request completed"}
+{"level":30,"time":1759394154854,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-32","res":{"statusCode":200},"responseTime":194.45495799183846,"msg":"request completed"}
+{"level":30,"time":1759394154888,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-34","res":{"statusCode":200},"responseTime":226.61383299529552,"msg":"request completed"}
+{"level":30,"time":1759394168945,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-37","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58777},"msg":"incoming request"}
+{"level":30,"time":1759394168945,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-38","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58778},"msg":"incoming request"}
+{"level":30,"time":1759394168945,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-39","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58779},"msg":"incoming request"}
+{"level":30,"time":1759394168945,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3a","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58780},"msg":"incoming request"}
+{"level":30,"time":1759394168946,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3b","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759394168941","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58781},"msg":"incoming request"}
+{"level":30,"time":1759394168982,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3b","res":{"statusCode":200},"responseTime":35.97291700541973,"msg":"request completed"}
+{"level":30,"time":1759394169210,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-39","res":{"statusCode":200},"responseTime":264.40870900452137,"msg":"request completed"}
+{"level":30,"time":1759394169218,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-37","res":{"statusCode":200},"responseTime":273.32858400046825,"msg":"request completed"}
+{"level":30,"time":1759394169218,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-38","res":{"statusCode":200},"responseTime":273.1360420137644,"msg":"request completed"}
+{"level":30,"time":1759394169228,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3a","res":{"statusCode":200},"responseTime":282.6772500127554,"msg":"request completed"}
+{"level":30,"time":1759394169726,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3c","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58793},"msg":"incoming request"}
+{"level":30,"time":1759394169728,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3d","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58794},"msg":"incoming request"}
+{"level":30,"time":1759394169729,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3e","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58795},"msg":"incoming request"}
+{"level":30,"time":1759394169729,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3f","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58796},"msg":"incoming request"}
+{"level":30,"time":1759394169730,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3g","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759394169721","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58797},"msg":"incoming request"}
+{"level":30,"time":1759394169730,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3h","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759394169722","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58798},"msg":"incoming request"}
+{"level":30,"time":1759394169775,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3g","res":{"statusCode":200},"responseTime":45.0375000089407,"msg":"request completed"}
+{"level":30,"time":1759394169776,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3h","res":{"statusCode":200},"responseTime":45.9855829924345,"msg":"request completed"}
+{"level":30,"time":1759394169952,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3c","res":{"statusCode":200},"responseTime":225.93562500178814,"msg":"request completed"}
+{"level":30,"time":1759394169956,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3e","res":{"statusCode":200},"responseTime":227.38750000298023,"msg":"request completed"}
+{"level":30,"time":1759394169958,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3d","res":{"statusCode":200},"responseTime":229.41904099285603,"msg":"request completed"}
+{"level":30,"time":1759394169993,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3f","res":{"statusCode":200},"responseTime":263.82929199934006,"msg":"request completed"}
+{"level":30,"time":1759394183137,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3i","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58808},"msg":"incoming request"}
+{"level":30,"time":1759394183137,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3j","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58809},"msg":"incoming request"}
+{"level":30,"time":1759394183138,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3k","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58810},"msg":"incoming request"}
+{"level":30,"time":1759394183139,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3l","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58811},"msg":"incoming request"}
+{"level":30,"time":1759394183140,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3m","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759394183131","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58812},"msg":"incoming request"}
+{"level":30,"time":1759394183175,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3m","res":{"statusCode":200},"responseTime":34.65362499654293,"msg":"request completed"}
+{"level":30,"time":1759394183318,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3i","res":{"statusCode":200},"responseTime":181.20374999940395,"msg":"request completed"}
+{"level":30,"time":1759394183323,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3k","res":{"statusCode":200},"responseTime":185.12541699409485,"msg":"request completed"}
+{"level":30,"time":1759394183324,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3j","res":{"statusCode":200},"responseTime":186.17320799827576,"msg":"request completed"}
+{"level":30,"time":1759394183355,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3l","res":{"statusCode":200},"responseTime":215.83895899355412,"msg":"request completed"}
+{"level":30,"time":1759394271057,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3n","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58829},"msg":"incoming request"}
+{"level":30,"time":1759394271059,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3o","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58830},"msg":"incoming request"}
+{"level":30,"time":1759394271060,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3p","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58831},"msg":"incoming request"}
+{"level":30,"time":1759394271060,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3q","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58832},"msg":"incoming request"}
+{"level":30,"time":1759394271061,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3r","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759394271051","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58833},"msg":"incoming request"}
+{"level":30,"time":1759394271102,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3r","res":{"statusCode":200},"responseTime":41.16437500715256,"msg":"request completed"}
+{"level":30,"time":1759394271419,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3n","res":{"statusCode":200},"responseTime":361.78983299434185,"msg":"request completed"}
+{"level":30,"time":1759394271419,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3p","res":{"statusCode":200},"responseTime":359.5505000054836,"msg":"request completed"}
+{"level":30,"time":1759394271420,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3q","res":{"statusCode":200},"responseTime":359.4404999911785,"msg":"request completed"}
+{"level":30,"time":1759394271433,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3o","res":{"statusCode":200},"responseTime":374.3235419988632,"msg":"request completed"}
+{"level":30,"time":1759394411819,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3s","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58881},"msg":"incoming request"}
+{"level":30,"time":1759394411820,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3t","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58882},"msg":"incoming request"}
+{"level":30,"time":1759394411820,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3u","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58883},"msg":"incoming request"}
+{"level":30,"time":1759394411821,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3v","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58884},"msg":"incoming request"}
+{"level":30,"time":1759394411822,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3w","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759394411810","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58885},"msg":"incoming request"}
+{"level":30,"time":1759394411824,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3x","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759394411812","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58886},"msg":"incoming request"}
+{"level":30,"time":1759394411867,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3x","res":{"statusCode":200},"responseTime":43.66799999773502,"msg":"request completed"}
+{"level":30,"time":1759394411869,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3w","res":{"statusCode":200},"responseTime":47.017290994524956,"msg":"request completed"}
+{"level":30,"time":1759394412205,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3u","res":{"statusCode":200},"responseTime":385.25095899403095,"msg":"request completed"}
+{"level":30,"time":1759394412206,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3y","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58895},"msg":"incoming request"}
+{"level":30,"time":1759394412214,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3s","res":{"statusCode":200},"responseTime":394.98958300054073,"msg":"request completed"}
+{"level":30,"time":1759394412216,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3t","res":{"statusCode":200},"responseTime":395.96208399534225,"msg":"request completed"}
+{"level":30,"time":1759394412216,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3z","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58897},"msg":"incoming request"}
+{"level":30,"time":1759394412217,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-40","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58899},"msg":"incoming request"}
+{"level":30,"time":1759394412245,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3v","res":{"statusCode":200},"responseTime":424.35108299553394,"msg":"request completed"}
+{"level":30,"time":1759394412246,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-41","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58901},"msg":"incoming request"}
+{"level":30,"time":1759394412425,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3y","res":{"statusCode":200},"responseTime":218.32008400559425,"msg":"request completed"}
+{"level":30,"time":1759394412428,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-40","res":{"statusCode":200},"responseTime":211.61991600692272,"msg":"request completed"}
+{"level":30,"time":1759394412430,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-3z","res":{"statusCode":200},"responseTime":214.71250000596046,"msg":"request completed"}
+{"level":30,"time":1759394412471,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-41","res":{"statusCode":200},"responseTime":225.04358299076557,"msg":"request completed"}
+{"level":30,"time":1759394481204,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-42","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=5","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58932},"msg":"incoming request"}
+{"level":30,"time":1759394481545,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-42","res":{"statusCode":200},"responseTime":340.52670799195766,"msg":"request completed"}
+{"level":30,"time":1759394598937,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-43","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58951},"msg":"incoming request"}
+{"level":30,"time":1759394598938,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-44","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58952},"msg":"incoming request"}
+{"level":30,"time":1759394598938,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-45","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58953},"msg":"incoming request"}
+{"level":30,"time":1759394598938,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-46","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58954},"msg":"incoming request"}
+{"level":30,"time":1759394598939,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-47","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759394598932","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58955},"msg":"incoming request"}
+{"level":30,"time":1759394598983,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-47","res":{"statusCode":200},"responseTime":44.54033298790455,"msg":"request completed"}
+{"level":30,"time":1759394599334,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-45","res":{"statusCode":200},"responseTime":395.62416699528694,"msg":"request completed"}
+{"level":30,"time":1759394599339,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-44","res":{"statusCode":200},"responseTime":400.873541995883,"msg":"request completed"}
+{"level":30,"time":1759394599339,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-46","res":{"statusCode":200},"responseTime":400.8505000025034,"msg":"request completed"}
+{"level":30,"time":1759394599361,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-43","res":{"statusCode":200},"responseTime":423.918291002512,"msg":"request completed"}
+{"level":30,"time":1759394646093,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-48","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=false&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58963},"msg":"incoming request"}
+{"level":30,"time":1759394646352,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-48","res":{"statusCode":200},"responseTime":258.41020798683167,"msg":"request completed"}
+{"level":30,"time":1759394648325,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-49","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58966},"msg":"incoming request"}
+{"level":30,"time":1759394648461,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-49","res":{"statusCode":200},"responseTime":136.54312500357628,"msg":"request completed"}
+{"level":30,"time":1759394650139,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4a","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=false&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58968},"msg":"incoming request"}
+{"level":30,"time":1759394650279,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4a","res":{"statusCode":200},"responseTime":139.42854200303555,"msg":"request completed"}
+{"level":30,"time":1759394651163,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4b","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58970},"msg":"incoming request"}
+{"level":30,"time":1759394651290,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4b","res":{"statusCode":200},"responseTime":127.31529098749161,"msg":"request completed"}
+{"level":30,"time":1759394666737,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4c","req":{"method":"GET","url":"/api/feeds/overview/002670.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58972},"msg":"incoming request"}
+{"level":30,"time":1759394666764,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4c","res":{"statusCode":200},"responseTime":26.619124993681908,"msg":"request completed"}
+{"level":30,"time":1759394666769,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4d","req":{"method":"GET","url":"/api/feeds/data-status/002670.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58975},"msg":"incoming request"}
+{"level":30,"time":1759394666782,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4d","res":{"statusCode":200},"responseTime":13.030750006437302,"msg":"request completed"}
+{"level":30,"time":1759394666787,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4e","req":{"method":"GET","url":"/api/valuation/002670.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58977},"msg":"incoming request"}
+{"level":30,"time":1759394666807,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4e","res":{"statusCode":200},"responseTime":20.48200000822544,"msg":"request completed"}
+{"level":30,"time":1759394666840,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4f","req":{"method":"GET","url":"/api/feeds/kline/002670.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58984},"msg":"incoming request"}
+{"level":30,"time":1759394666843,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4g","req":{"method":"GET","url":"/api/valuation/002670.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58986},"msg":"incoming request"}
+{"level":30,"time":1759394666843,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4h","req":{"method":"GET","url":"/api/valuation/methods/002670.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58987},"msg":"incoming request"}
+{"level":30,"time":1759394666845,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4i","req":{"method":"GET","url":"/api/valuation/ai-score/002670.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58988},"msg":"incoming request"}
+{"level":30,"time":1759394666848,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4j","req":{"method":"GET","url":"/api/external/api-keys","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58989},"msg":"incoming request"}
+{"level":30,"time":1759394666850,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4g","res":{"statusCode":200},"responseTime":7.387916997075081,"msg":"request completed"}
+{"level":30,"time":1759394666850,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4k","req":{"method":"GET","url":"/api/valuation/dcf/002670.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58990},"msg":"incoming request"}
+{"level":30,"time":1759394666852,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4k","res":{"statusCode":200},"responseTime":1.5596249997615814,"msg":"request completed"}
+Error getting user API keys: error: database "prisma/dev.db" does not exist
+    at /Users/liao/infostream-mvp/server/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async ExternalApiService.getUserApiKeys (/Users/liao/infostream-mvp/server/src/modules/external/external-api-service.ts:187:22)
+    at async Object.<anonymous> (/Users/liao/infostream-mvp/server/src/modules/external/routes.ts:60:23) {
+  length: 99,
+  severity: 'FATAL',
+  code: '3D000',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'postinit.c',
+  line: '1023',
+  routine: 'InitPostgres'
+}
+{"level":30,"time":1759394666856,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4j","res":{"statusCode":200},"responseTime":7.0992079973220825,"msg":"request completed"}
+{"level":30,"time":1759394666862,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4h","res":{"statusCode":200},"responseTime":18.196957990527153,"msg":"request completed"}
+{"level":30,"time":1759394666862,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4f","res":{"statusCode":200},"responseTime":21.795708000659943,"msg":"request completed"}
+{"level":30,"time":1759394666862,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4i","res":{"statusCode":200},"responseTime":17.123249992728233,"msg":"request completed"}
+{"level":30,"time":1759394666989,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4l","req":{"method":"GET","url":"/api/feeds/ai/forecast/002670.SZ?pred_len=60","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":58995},"msg":"incoming request"}
+{"level":30,"time":1759394667005,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4l","res":{"statusCode":500},"responseTime":15.653749987483025,"msg":"request completed"}
+{"level":30,"time":1759394696257,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4m","req":{"method":"GET","url":"/api/external/api-keys","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59000},"msg":"incoming request"}
+{"level":30,"time":1759394696257,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4n","req":{"method":"GET","url":"/api/external/providers","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59001},"msg":"incoming request"}
+{"level":30,"time":1759394696258,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4n","res":{"statusCode":200},"responseTime":0.2890409976243973,"msg":"request completed"}
+Error getting user API keys: error: database "prisma/dev.db" does not exist
+    at /Users/liao/infostream-mvp/server/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async ExternalApiService.getUserApiKeys (/Users/liao/infostream-mvp/server/src/modules/external/external-api-service.ts:187:22)
+    at async Object.<anonymous> (/Users/liao/infostream-mvp/server/src/modules/external/routes.ts:60:23) {
+  length: 99,
+  severity: 'FATAL',
+  code: '3D000',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'postinit.c',
+  line: '1023',
+  routine: 'InitPostgres'
+}
+{"level":30,"time":1759394696261,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4m","res":{"statusCode":200},"responseTime":4.189791992306709,"msg":"request completed"}
+{"level":30,"time":1759394698849,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4o","req":{"method":"GET","url":"/api/external/usage-stats?days=30","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59005},"msg":"incoming request"}
+{"level":30,"time":1759394698850,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4p","req":{"method":"GET","url":"/api/external/api-keys","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59006},"msg":"incoming request"}
+Error getting usage stats: error: database "prisma/dev.db" does not exist
+    at /Users/liao/infostream-mvp/server/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async ExternalApiService.getUsageStats (/Users/liao/infostream-mvp/server/src/modules/external/external-api-service.ts:368:22)
+    at async Object.<anonymous> (/Users/liao/infostream-mvp/server/src/modules/external/routes.ts:146:21) {
+  length: 99,
+  severity: 'FATAL',
+  code: '3D000',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'postinit.c',
+  line: '1023',
+  routine: 'InitPostgres'
+}
+{"level":30,"time":1759394698852,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4o","res":{"statusCode":200},"responseTime":3.7294580042362213,"msg":"request completed"}
+Error getting user API keys: error: database "prisma/dev.db" does not exist
+    at /Users/liao/infostream-mvp/server/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async ExternalApiService.getUserApiKeys (/Users/liao/infostream-mvp/server/src/modules/external/external-api-service.ts:187:22)
+    at async Object.<anonymous> (/Users/liao/infostream-mvp/server/src/modules/external/routes.ts:60:23) {
+  length: 99,
+  severity: 'FATAL',
+  code: '3D000',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'postinit.c',
+  line: '1023',
+  routine: 'InitPostgres'
+}
+{"level":30,"time":1759394698853,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4p","res":{"statusCode":200},"responseTime":3.1015830039978027,"msg":"request completed"}
+{"level":30,"time":1759394703833,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4q","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59011},"msg":"incoming request"}
+{"level":30,"time":1759394703838,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4r","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59016},"msg":"incoming request"}
+{"level":30,"time":1759394703840,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4s","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59017},"msg":"incoming request"}
+{"level":30,"time":1759394703840,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4t","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59018},"msg":"incoming request"}
+{"level":30,"time":1759394703842,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4u","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759394703825","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59019},"msg":"incoming request"}
+{"level":30,"time":1759394703901,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4u","res":{"statusCode":200},"responseTime":59.00116600096226,"msg":"request completed"}
+{"level":30,"time":1759394704145,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4q","res":{"statusCode":200},"responseTime":311.91749998927116,"msg":"request completed"}
+{"level":30,"time":1759394704152,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4s","res":{"statusCode":200},"responseTime":312.15887500345707,"msg":"request completed"}
+{"level":30,"time":1759394704154,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4t","res":{"statusCode":200},"responseTime":313.3394999951124,"msg":"request completed"}
+{"level":30,"time":1759394704166,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4r","res":{"statusCode":200},"responseTime":327.03749999403954,"msg":"request completed"}
+{"level":30,"time":1759395734998,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4v","req":{"method":"GET","url":"/api/feeds/overview/605376.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59127},"msg":"incoming request"}
+{"level":30,"time":1759395735022,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4v","res":{"statusCode":200},"responseTime":23.802499994635582,"msg":"request completed"}
+{"level":30,"time":1759395735028,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4w","req":{"method":"GET","url":"/api/feeds/data-status/605376.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59130},"msg":"incoming request"}
+{"level":30,"time":1759395735034,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4w","res":{"statusCode":200},"responseTime":6.240625008940697,"msg":"request completed"}
+{"level":30,"time":1759395735040,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4x","req":{"method":"POST","url":"/api/feeds/auto-import/605376.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59133},"msg":"incoming request"}
+🚀 开始导入 605376.SH 的数据...
+📊 导入K线数据: 605376.SH
+{"level":30,"time":1759395735047,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4x","res":{"statusCode":200},"responseTime":6.991874992847443,"msg":"request completed"}
+🚀 开始导入 605376.SH 的数据...
+📊 导入K线数据: 605376.SH
+{"level":30,"time":1759395735047,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4y","req":{"method":"POST","url":"/api/feeds/auto-import/605376.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59134},"msg":"incoming request"}
+{"level":30,"time":1759395735048,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4y","res":{"statusCode":200},"responseTime":1.0886670053005219,"msg":"request completed"}
+[import_ohlcv.py] Success for 605376.SH
+📈 计算技术指标: 605376.SH
+[import_ohlcv.py] Success for 605376.SH
+📈 计算技术指标: 605376.SH
+[compute_indicators.py] Success for 605376.SH
+💰 导入财务数据: 605376.SH
+[compute_indicators.py] Success for 605376.SH
+💰 导入财务数据: 605376.SH
+[ingest_financials.py] Success for 605376.SH
+📊 计算估值: 605376.SH
+[ingest_financials.py] Success for 605376.SH
+📊 计算估值: 605376.SH
+[compute_valuations.py] Success for 605376.SH
+🤖 计算AI评分: 605376.SH
+[compute_valuations.py] Success for 605376.SH
+🤖 计算AI评分: 605376.SH
+{"level":30,"time":1759395738373,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4z","req":{"method":"GET","url":"/api/feeds/overview/605376.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59162},"msg":"incoming request"}
+{"level":30,"time":1759395738374,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-4z","res":{"statusCode":200},"responseTime":1.186499997973442,"msg":"request completed"}
+{"level":30,"time":1759395738376,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-50","req":{"method":"GET","url":"/api/feeds/data-status/605376.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59163},"msg":"incoming request"}
+{"level":30,"time":1759395738379,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-50","res":{"statusCode":200},"responseTime":2.2841250002384186,"msg":"request completed"}
+{"level":30,"time":1759395738381,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-51","req":{"method":"POST","url":"/api/feeds/auto-import/605376.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59164},"msg":"incoming request"}
+🚀 开始导入 605376.SH 的数据...
+📊 导入K线数据: 605376.SH
+🚀 开始导入 605376.SH 的数据...
+📊 导入K线数据: 605376.SH
+{"level":30,"time":1759395738381,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-51","res":{"statusCode":200},"responseTime":0.6645410060882568,"msg":"request completed"}
+{"level":30,"time":1759395738382,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-52","req":{"method":"POST","url":"/api/feeds/auto-import/605376.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59165},"msg":"incoming request"}
+{"level":30,"time":1759395738382,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-52","res":{"statusCode":200},"responseTime":0.6459999978542328,"msg":"request completed"}
+[simple_ai_scoring.py] Success for 605376.SH
+💰 计算DCF估值: 605376.SH
+[simple_ai_scoring.py] Success for 605376.SH
+💰 计算DCF估值: 605376.SH
+[dcf_valuation.py] Success for 605376.SH
+✅ 605376.SH 数据导入完成！
+[dcf_valuation.py] Success for 605376.SH
+✅ 605376.SH 数据导入完成！
+[import_ohlcv.py] Success for 605376.SH
+📈 计算技术指标: 605376.SH
+[import_ohlcv.py] Success for 605376.SH
+📈 计算技术指标: 605376.SH
+[compute_indicators.py] Success for 605376.SH
+💰 导入财务数据: 605376.SH
+[compute_indicators.py] Success for 605376.SH
+💰 导入财务数据: 605376.SH
+[ingest_financials.py] Success for 605376.SH
+📊 计算估值: 605376.SH
+[ingest_financials.py] Success for 605376.SH
+📊 计算估值: 605376.SH
+[compute_valuations.py] Success for 605376.SH
+🤖 计算AI评分: 605376.SH
+[compute_valuations.py] Success for 605376.SH
+🤖 计算AI评分: 605376.SH
+{"level":30,"time":1759395740511,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-53","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59192},"msg":"incoming request"}
+{"level":30,"time":1759395740512,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-54","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59193},"msg":"incoming request"}
+{"level":30,"time":1759395740515,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-55","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59198},"msg":"incoming request"}
+{"level":30,"time":1759395740516,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-56","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59199},"msg":"incoming request"}
+{"level":30,"time":1759395740517,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-57","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759395740508","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59200},"msg":"incoming request"}
+[simple_ai_scoring.py] Success for 605376.SH
+💰 计算DCF估值: 605376.SH
+[simple_ai_scoring.py] Success for 605376.SH
+💰 计算DCF估值: 605376.SH
+{"level":30,"time":1759395740545,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-57","res":{"statusCode":200},"responseTime":27.364958003163338,"msg":"request completed"}
+[dcf_valuation.py] Success for 605376.SH
+✅ 605376.SH 数据导入完成！
+[dcf_valuation.py] Success for 605376.SH
+✅ 605376.SH 数据导入完成！
+{"level":30,"time":1759395740880,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-54","res":{"statusCode":200},"responseTime":367.5672909915447,"msg":"request completed"}
+{"level":30,"time":1759395740880,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-53","res":{"statusCode":200},"responseTime":369.10641700029373,"msg":"request completed"}
+{"level":30,"time":1759395740882,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-55","res":{"statusCode":200},"responseTime":366.71629199385643,"msg":"request completed"}
+{"level":30,"time":1759395740906,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-56","res":{"statusCode":200},"responseTime":389.40845799446106,"msg":"request completed"}
+{"level":30,"time":1759395741292,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-58","req":{"method":"GET","url":"/api/feeds/overview/002513.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59207},"msg":"incoming request"}
+{"level":30,"time":1759395741296,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-58","res":{"statusCode":200},"responseTime":4.142958998680115,"msg":"request completed"}
+{"level":30,"time":1759395741301,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-59","req":{"method":"GET","url":"/api/feeds/data-status/002513.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59209},"msg":"incoming request"}
+{"level":30,"time":1759395741304,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-59","res":{"statusCode":200},"responseTime":3.843208000063896,"msg":"request completed"}
+{"level":30,"time":1759395741309,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5a","req":{"method":"POST","url":"/api/feeds/auto-import/002513.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59212},"msg":"incoming request"}
+🚀 开始导入 002513.SZ 的数据...
+📊 导入K线数据: 002513.SZ
+{"level":30,"time":1759395741311,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5a","res":{"statusCode":200},"responseTime":2.5935830026865005,"msg":"request completed"}
+{"level":30,"time":1759395741312,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5b","req":{"method":"POST","url":"/api/feeds/auto-import/002513.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59213},"msg":"incoming request"}
+🚀 开始导入 002513.SZ 的数据...
+📊 导入K线数据: 002513.SZ
+{"level":30,"time":1759395741314,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5b","res":{"statusCode":200},"responseTime":1.725500002503395,"msg":"request completed"}
+[import_ohlcv.py] Success for 002513.SZ
+📈 计算技术指标: 002513.SZ
+[import_ohlcv.py] Success for 002513.SZ
+📈 计算技术指标: 002513.SZ
+[compute_indicators.py] Success for 002513.SZ
+💰 导入财务数据: 002513.SZ
+[compute_indicators.py] Success for 002513.SZ
+💰 导入财务数据: 002513.SZ
+[ingest_financials.py] Success for 002513.SZ
+📊 计算估值: 002513.SZ
+[ingest_financials.py] Success for 002513.SZ
+📊 计算估值: 002513.SZ
+[compute_valuations.py] Success for 002513.SZ
+🤖 计算AI评分: 002513.SZ
+[compute_valuations.py] Success for 002513.SZ
+🤖 计算AI评分: 002513.SZ
+{"level":30,"time":1759395743386,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5c","req":{"method":"GET","url":"/api/feeds/data-status/605376.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59235},"msg":"incoming request"}
+{"level":30,"time":1759395743388,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5c","res":{"statusCode":200},"responseTime":2.4366669952869415,"msg":"request completed"}
+{"level":30,"time":1759395743391,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5d","req":{"method":"GET","url":"/api/valuation/605376.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59237},"msg":"incoming request"}
+{"level":30,"time":1759395743398,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5d","res":{"statusCode":200},"responseTime":6.273042008280754,"msg":"request completed"}
+[simple_ai_scoring.py] Success for 002513.SZ
+💰 计算DCF估值: 002513.SZ
+[simple_ai_scoring.py] Success for 002513.SZ
+💰 计算DCF估值: 002513.SZ
+[dcf_valuation.py] Success for 002513.SZ
+✅ 002513.SZ 数据导入完成！
+[dcf_valuation.py] Success for 002513.SZ
+✅ 002513.SZ 数据导入完成！
+{"level":30,"time":1759395743948,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5e","req":{"method":"GET","url":"/api/feeds/overview/002513.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59250},"msg":"incoming request"}
+{"level":30,"time":1759395743949,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5e","res":{"statusCode":200},"responseTime":0.8674580007791519,"msg":"request completed"}
+{"level":30,"time":1759395743951,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5f","req":{"method":"GET","url":"/api/feeds/data-status/002513.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59251},"msg":"incoming request"}
+{"level":30,"time":1759395743955,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5f","res":{"statusCode":200},"responseTime":3.437749996781349,"msg":"request completed"}
+{"level":30,"time":1759395743956,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5g","req":{"method":"GET","url":"/api/valuation/002513.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59252},"msg":"incoming request"}
+{"level":30,"time":1759395743958,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5g","res":{"statusCode":200},"responseTime":2.3092919886112213,"msg":"request completed"}
+{"level":30,"time":1759395743964,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5h","req":{"method":"GET","url":"/api/feeds/kline/002513.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59253},"msg":"incoming request"}
+{"level":30,"time":1759395743965,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5i","req":{"method":"GET","url":"/api/valuation/002513.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59254},"msg":"incoming request"}
+{"level":30,"time":1759395743965,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5j","req":{"method":"GET","url":"/api/valuation/methods/002513.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59255},"msg":"incoming request"}
+{"level":30,"time":1759395743965,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5k","req":{"method":"GET","url":"/api/valuation/ai-score/002513.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59259},"msg":"incoming request"}
+{"level":30,"time":1759395743966,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5l","req":{"method":"GET","url":"/api/external/api-keys","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59260},"msg":"incoming request"}
+{"level":30,"time":1759395743967,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5m","req":{"method":"GET","url":"/api/valuation/dcf/002513.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59261},"msg":"incoming request"}
+{"level":30,"time":1759395743968,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5i","res":{"statusCode":200},"responseTime":2.7449999898672104,"msg":"request completed"}
+Error getting user API keys: error: database "prisma/dev.db" does not exist
+    at /Users/liao/infostream-mvp/server/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async ExternalApiService.getUserApiKeys (/Users/liao/infostream-mvp/server/src/modules/external/external-api-service.ts:187:22)
+    at async Object.<anonymous> (/Users/liao/infostream-mvp/server/src/modules/external/routes.ts:60:23) {
+  length: 99,
+  severity: 'FATAL',
+  code: '3D000',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'postinit.c',
+  line: '1023',
+  routine: 'InitPostgres'
+}
+{"level":30,"time":1759395743970,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5l","res":{"statusCode":200},"responseTime":4.014249995350838,"msg":"request completed"}
+{"level":30,"time":1759395743974,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5j","res":{"statusCode":200},"responseTime":9.239000007510185,"msg":"request completed"}
+{"level":30,"time":1759395743975,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5h","res":{"statusCode":200},"responseTime":10.19708400964737,"msg":"request completed"}
+{"level":30,"time":1759395743975,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5k","res":{"statusCode":200},"responseTime":9.62720799446106,"msg":"request completed"}
+{"level":30,"time":1759395743976,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5m","res":{"statusCode":200},"responseTime":9.357457995414734,"msg":"request completed"}
+{"level":30,"time":1759395743982,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5n","req":{"method":"POST","url":"/api/valuation/dcf/002513.SZ/calculate","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59268},"msg":"incoming request"}
+{"level":50,"time":1759395743983,"pid":57835,"hostname":"liaodeMac-mini.local","msg":"DCF calculation API error:"}
+{"level":30,"time":1759395743984,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5n","res":{"statusCode":500},"responseTime":1.7625000029802322,"msg":"request completed"}
+{"level":30,"time":1759395743984,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5o","req":{"method":"POST","url":"/api/valuation/dcf/002513.SZ/calculate","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59269},"msg":"incoming request"}
+{"level":50,"time":1759395743985,"pid":57835,"hostname":"liaodeMac-mini.local","msg":"DCF calculation API error:"}
+{"level":30,"time":1759395743985,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5o","res":{"statusCode":500},"responseTime":1.0499589890241623,"msg":"request completed"}
+{"level":30,"time":1759395744087,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5p","req":{"method":"GET","url":"/api/feeds/ai/forecast/002513.SZ?pred_len=60","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59271},"msg":"incoming request"}
+{"level":30,"time":1759395744091,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5p","res":{"statusCode":500},"responseTime":3.7642080038785934,"msg":"request completed"}
+{"level":30,"time":1759396089432,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5q","req":{"method":"GET","url":"/api/external/api-keys","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59333},"msg":"incoming request"}
+{"level":30,"time":1759396089443,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5r","req":{"method":"GET","url":"/api/external/providers","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59335},"msg":"incoming request"}
+{"level":30,"time":1759396089444,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5r","res":{"statusCode":200},"responseTime":0.7732499986886978,"msg":"request completed"}
+Error getting user API keys: error: database "prisma/dev.db" does not exist
+    at /Users/liao/infostream-mvp/server/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async ExternalApiService.getUserApiKeys (/Users/liao/infostream-mvp/server/src/modules/external/external-api-service.ts:187:22)
+    at async Object.<anonymous> (/Users/liao/infostream-mvp/server/src/modules/external/routes.ts:60:23) {
+  length: 99,
+  severity: 'FATAL',
+  code: '3D000',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'postinit.c',
+  line: '1023',
+  routine: 'InitPostgres'
+}
+{"level":30,"time":1759396089466,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5q","res":{"statusCode":200},"responseTime":34.230250000953674,"msg":"request completed"}
+{"level":30,"time":1759396239144,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5s","req":{"method":"GET","url":"/api/feeds/rankings/first-limit?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59355},"msg":"incoming request"}
+{"level":30,"time":1759396239146,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5t","req":{"method":"GET","url":"/api/feeds/rankings/max-gain?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59358},"msg":"incoming request"}
+{"level":30,"time":1759396239147,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5u","req":{"method":"GET","url":"/api/feeds/rankings/volume?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59359},"msg":"incoming request"}
+{"level":30,"time":1759396239147,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5v","req":{"method":"GET","url":"/api/feeds/rankings/amount?smart=true&limit=10","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59360},"msg":"incoming request"}
+{"level":30,"time":1759396239148,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5w","req":{"method":"GET","url":"/api/feeds/hot?limit=9&_t=1759396239139","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59361},"msg":"incoming request"}
+{"level":30,"time":1759396239180,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5w","res":{"statusCode":200},"responseTime":31.68104200065136,"msg":"request completed"}
+{"level":30,"time":1759396239522,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5t","res":{"statusCode":200},"responseTime":376.39974999427795,"msg":"request completed"}
+{"level":30,"time":1759396239523,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5s","res":{"statusCode":200},"responseTime":378.55491699278355,"msg":"request completed"}
+{"level":30,"time":1759396239526,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5u","res":{"statusCode":200},"responseTime":378.973374992609,"msg":"request completed"}
+{"level":30,"time":1759396239541,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5v","res":{"statusCode":200},"responseTime":393.63116700947285,"msg":"request completed"}
+{"level":30,"time":1759396239732,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5x","req":{"method":"GET","url":"/api/feeds/overview/002513.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59368},"msg":"incoming request"}
+{"level":30,"time":1759396239736,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5x","res":{"statusCode":200},"responseTime":3.025999993085861,"msg":"request completed"}
+{"level":30,"time":1759396239740,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5y","req":{"method":"GET","url":"/api/feeds/data-status/002513.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59370},"msg":"incoming request"}
+{"level":30,"time":1759396239746,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5y","res":{"statusCode":200},"responseTime":6.347125008702278,"msg":"request completed"}
+{"level":30,"time":1759396239750,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5z","req":{"method":"GET","url":"/api/valuation/002513.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59372},"msg":"incoming request"}
+{"level":30,"time":1759396239764,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-5z","res":{"statusCode":200},"responseTime":13.816165998578072,"msg":"request completed"}
+{"level":30,"time":1759396239791,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-60","req":{"method":"GET","url":"/api/feeds/kline/002513.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59376},"msg":"incoming request"}
+{"level":30,"time":1759396239793,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-61","req":{"method":"GET","url":"/api/valuation/002513.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59381},"msg":"incoming request"}
+{"level":30,"time":1759396239793,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-62","req":{"method":"GET","url":"/api/valuation/methods/002513.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59382},"msg":"incoming request"}
+{"level":30,"time":1759396239794,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-63","req":{"method":"GET","url":"/api/valuation/ai-score/002513.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59383},"msg":"incoming request"}
+{"level":30,"time":1759396239795,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-64","req":{"method":"GET","url":"/api/external/api-keys","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59384},"msg":"incoming request"}
+{"level":30,"time":1759396239795,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-65","req":{"method":"GET","url":"/api/valuation/dcf/002513.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59385},"msg":"incoming request"}
+{"level":30,"time":1759396239799,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-61","res":{"statusCode":200},"responseTime":6.42399999499321,"msg":"request completed"}
+{"level":30,"time":1759396239833,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-60","res":{"statusCode":200},"responseTime":41.51000000536442,"msg":"request completed"}
+Error getting user API keys: error: database "prisma/dev.db" does not exist
+    at /Users/liao/infostream-mvp/server/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async ExternalApiService.getUserApiKeys (/Users/liao/infostream-mvp/server/src/modules/external/external-api-service.ts:187:22)
+    at async Object.<anonymous> (/Users/liao/infostream-mvp/server/src/modules/external/routes.ts:60:23) {
+  length: 99,
+  severity: 'FATAL',
+  code: '3D000',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'postinit.c',
+  line: '1023',
+  routine: 'InitPostgres'
+}
+{"level":30,"time":1759396239834,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-64","res":{"statusCode":200},"responseTime":38.41845899820328,"msg":"request completed"}
+{"level":30,"time":1759396239835,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-62","res":{"statusCode":200},"responseTime":41.78566600382328,"msg":"request completed"}
+{"level":30,"time":1759396239835,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-63","res":{"statusCode":200},"responseTime":41.1644169986248,"msg":"request completed"}
+{"level":30,"time":1759396239836,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-65","res":{"statusCode":200},"responseTime":40.393541008234024,"msg":"request completed"}
+{"level":30,"time":1759396239844,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-66","req":{"method":"POST","url":"/api/valuation/dcf/002513.SZ/calculate","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59392},"msg":"incoming request"}
+{"level":50,"time":1759396239845,"pid":57835,"hostname":"liaodeMac-mini.local","msg":"DCF calculation API error:"}
+{"level":30,"time":1759396239845,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-66","res":{"statusCode":500},"responseTime":0.4957920014858246,"msg":"request completed"}
+{"level":30,"time":1759396239845,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-67","req":{"method":"POST","url":"/api/valuation/dcf/002513.SZ/calculate","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59393},"msg":"incoming request"}
+{"level":50,"time":1759396239845,"pid":57835,"hostname":"liaodeMac-mini.local","msg":"DCF calculation API error:"}
+{"level":30,"time":1759396239845,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-67","res":{"statusCode":500},"responseTime":0.37233400344848633,"msg":"request completed"}
+{"level":30,"time":1759396239958,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-68","req":{"method":"GET","url":"/api/feeds/ai/forecast/002513.SZ?pred_len=60","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":59395},"msg":"incoming request"}
+{"level":30,"time":1759396239964,"pid":57835,"hostname":"liaodeMac-mini.local","reqId":"req-68","res":{"statusCode":500},"responseTime":6.098625004291534,"msg":"request completed"}

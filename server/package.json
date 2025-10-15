@@ -1,0 +1,44 @@
+{
+  "name": "@infostream/server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "prisma:generate": "prisma generate",
+    "prisma:push": "prisma db push",
+    "db:reset": "rm -f prisma/dev.db && prisma db push"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@fastify/cors": "^11.1.0",
+    "@fastify/jwt": "^10.0.0",
+    "bcrypt": "^6.0.0",
+    "cheerio": "^1.1.2",
+    "fastify": "^5.6.0",
+    "iconv-lite": "^0.7.0",
+    "pino": "^9.9.5",
+    "pino-pretty": "^13.1.1",
+    "puppeteer": "^24.20.0",
+    "rss-parser": "^3.13.0",
+    "zod": "^4.1.5"
+  },
+  "devDependencies": {
+    "@prisma/client": "^6.16.0",
+    "@types/node": "^24.3.1",
+    "@types/ws": "^8.18.1",
+    "dotenv": "^17.2.2",
+    "light-my-request": "^6.6.0",
+    "prisma": "^6.16.0",
+    "ts-node-dev": "^2.0.0",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}

@@ -1,0 +1,211 @@
+
+> @infostream/server@1.0.0 dev
+> tsx watch src/index.ts
+
+[dotenv@17.2.2] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+{"level":30,"time":1758700184074,"pid":79557,"hostname":"Mac.mshome.net","msg":"Feed update tasks are disabled by FEEDS_DISABLE_TASKS"}
+{"level":30,"time":1758700184078,"pid":79557,"hostname":"Mac.mshome.net","msg":"Server listening at http://127.0.0.1:3002"}
+{"level":30,"time":1758700184078,"pid":79557,"hostname":"Mac.mshome.net","msg":"Server listening at http://192.168.137.232:3002"}
+{"level":30,"time":1758700202535,"pid":79557,"hostname":"Mac.mshome.net","reqId":"req-1","req":{"method":"POST","url":"/api/feeds/auto-import/000001.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":53039},"msg":"incoming request"}
+{"level":30,"time":1758700202543,"pid":79557,"hostname":"Mac.mshome.net","reqId":"req-1","res":{"statusCode":200},"responseTime":8.155750002712011,"msg":"request completed"}
+4:50:36 PM [tsx] change in ./src/modules/feeds/routes.ts Restarting...
+c[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+{"level":30,"time":1758700236538,"pid":80125,"hostname":"Mac.mshome.net","msg":"Feed update tasks are disabled by FEEDS_DISABLE_TASKS"}
+{"level":30,"time":1758700236543,"pid":80125,"hostname":"Mac.mshome.net","msg":"Server listening at http://127.0.0.1:3002"}
+{"level":30,"time":1758700236543,"pid":80125,"hostname":"Mac.mshome.net","msg":"Server listening at http://192.168.137.232:3002"}
+{"level":30,"time":1758700456105,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-1","req":{"method":"GET","url":"/health","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":53967},"msg":"incoming request"}
+{"level":30,"time":1758700456108,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-1","res":{"statusCode":200},"responseTime":2.945957999676466,"msg":"request completed"}
+{"level":30,"time":1758700527419,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-2","req":{"method":"GET","url":"/","host":"localhost:3002","remoteAddress":"127.0.0.1","remotePort":54043},"msg":"incoming request"}
+{"level":30,"time":1758700527420,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-2","msg":"Route GET:/ not found"}
+{"level":30,"time":1758700527421,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-2","res":{"statusCode":404},"responseTime":0.9461669996380806,"msg":"request completed"}
+{"level":30,"time":1758700527626,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-3","req":{"method":"GET","url":"/favicon.ico","host":"localhost:3002","remoteAddress":"127.0.0.1","remotePort":54043},"msg":"incoming request"}
+{"level":30,"time":1758700527626,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-3","msg":"Route GET:/favicon.ico not found"}
+{"level":30,"time":1758700527627,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-3","res":{"statusCode":404},"responseTime":0.3719169981777668,"msg":"request completed"}
+{"level":30,"time":1758700833588,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-4","req":{"method":"GET","url":"/health","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":54325},"msg":"incoming request"}
+{"level":30,"time":1758700833588,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-4","res":{"statusCode":200},"responseTime":0.16612499952316284,"msg":"request completed"}
+{"level":30,"time":1758701129386,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-5","req":{"method":"GET","url":"/api/feeds/overview/600519.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":54603},"msg":"incoming request"}
+{"level":30,"time":1758701129401,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-5","res":{"statusCode":200},"responseTime":14.601167000830173,"msg":"request completed"}
+{"level":30,"time":1758701138892,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-6","req":{"method":"GET","url":"/api/feeds/kline/600519.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":54606},"msg":"incoming request"}
+{"level":30,"time":1758701138902,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-6","res":{"statusCode":200},"responseTime":10.059708997607231,"msg":"request completed"}
+{"level":30,"time":1758701195345,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-7","req":{"method":"GET","url":"/health","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":54773},"msg":"incoming request"}
+{"level":30,"time":1758701195345,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-7","res":{"statusCode":200},"responseTime":0.17833299934864044,"msg":"request completed"}
+{"level":30,"time":1758701202597,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-8","req":{"method":"GET","url":"/api/feeds/overview/600519.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":54777},"msg":"incoming request"}
+{"level":30,"time":1758701202604,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-8","res":{"statusCode":200},"responseTime":7.089457999914885,"msg":"request completed"}
+{"level":30,"time":1758701497968,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-9","req":{"method":"GET","url":"/api/feeds/overview/600519.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55201},"msg":"incoming request"}
+{"level":30,"time":1758701497978,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-9","res":{"statusCode":200},"responseTime":9.998917002230883,"msg":"request completed"}
+{"level":30,"time":1758701497985,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-a","req":{"method":"GET","url":"/api/valuation/600519.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55204},"msg":"incoming request"}
+{"level":30,"time":1758701497999,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-a","res":{"statusCode":200},"responseTime":14.307541999965906,"msg":"request completed"}
+{"level":30,"time":1758701498020,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-b","req":{"method":"GET","url":"/api/feeds/kline/600519.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55210},"msg":"incoming request"}
+{"level":30,"time":1758701498022,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-c","req":{"method":"GET","url":"/api/valuation/600519.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55211},"msg":"incoming request"}
+{"level":30,"time":1758701498023,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-d","req":{"method":"GET","url":"/api/valuation/ai-score/600519.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55212},"msg":"incoming request"}
+{"level":30,"time":1758701498027,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-e","req":{"method":"GET","url":"/api/valuation/dcf/600519.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55213},"msg":"incoming request"}
+{"level":30,"time":1758701498028,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-c","res":{"statusCode":200},"responseTime":6.195790998637676,"msg":"request completed"}
+{"level":30,"time":1758701498036,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-b","res":{"statusCode":200},"responseTime":15.652665998786688,"msg":"request completed"}
+{"level":30,"time":1758701498038,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-d","res":{"statusCode":200},"responseTime":14.715250000357628,"msg":"request completed"}
+{"level":30,"time":1758701498039,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-e","res":{"statusCode":200},"responseTime":11.789333000779152,"msg":"request completed"}
+{"level":30,"time":1758701890626,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-f","req":{"method":"GET","url":"/api/feeds/overview/600519.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55246},"msg":"incoming request"}
+{"level":30,"time":1758701890636,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-f","res":{"statusCode":200},"responseTime":9.843541998416185,"msg":"request completed"}
+{"level":30,"time":1758701890639,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-g","req":{"method":"GET","url":"/api/valuation/600519.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55248},"msg":"incoming request"}
+{"level":30,"time":1758701890652,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-g","res":{"statusCode":200},"responseTime":13.18112500011921,"msg":"request completed"}
+{"level":30,"time":1758701890659,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-h","req":{"method":"GET","url":"/api/feeds/kline/600519.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55250},"msg":"incoming request"}
+{"level":30,"time":1758701890660,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-i","req":{"method":"GET","url":"/api/valuation/600519.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55251},"msg":"incoming request"}
+{"level":30,"time":1758701890660,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-j","req":{"method":"GET","url":"/api/valuation/ai-score/600519.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55252},"msg":"incoming request"}
+{"level":30,"time":1758701890661,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-k","req":{"method":"GET","url":"/api/valuation/dcf/600519.SH","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55253},"msg":"incoming request"}
+{"level":30,"time":1758701890667,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-i","res":{"statusCode":200},"responseTime":6.925999999046326,"msg":"request completed"}
+{"level":30,"time":1758701890676,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-h","res":{"statusCode":200},"responseTime":16.79391700029373,"msg":"request completed"}
+{"level":30,"time":1758701890678,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-j","res":{"statusCode":200},"responseTime":17.73674999922514,"msg":"request completed"}
+{"level":30,"time":1758701890678,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-k","res":{"statusCode":200},"responseTime":17.531874999403954,"msg":"request completed"}
+{"level":30,"time":1758701893144,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-l","req":{"method":"GET","url":"/api/feeds/overview/000001.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55263},"msg":"incoming request"}
+{"level":30,"time":1758701893148,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-l","res":{"statusCode":200},"responseTime":3.9965410009026527,"msg":"request completed"}
+{"level":30,"time":1758701893154,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-m","req":{"method":"GET","url":"/api/valuation/000001.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55264},"msg":"incoming request"}
+{"level":30,"time":1758701893155,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-m","res":{"statusCode":404},"responseTime":1.5003329999744892,"msg":"request completed"}
+{"level":30,"time":1758701893166,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-n","req":{"method":"GET","url":"/api/feeds/kline/000001.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55265},"msg":"incoming request"}
+{"level":30,"time":1758701893168,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-o","req":{"method":"GET","url":"/api/valuation/000001.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55266},"msg":"incoming request"}
+{"level":30,"time":1758701893168,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-p","req":{"method":"GET","url":"/api/valuation/dcf/000001.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55267},"msg":"incoming request"}
+{"level":30,"time":1758701893168,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-q","req":{"method":"GET","url":"/api/valuation/ai-score/000001.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55268},"msg":"incoming request"}
+{"level":30,"time":1758701893169,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-o","res":{"statusCode":404},"responseTime":0.9898749999701977,"msg":"request completed"}
+{"level":30,"time":1758701893169,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-n","res":{"statusCode":200},"responseTime":2.7657499983906746,"msg":"request completed"}
+{"level":30,"time":1758701893169,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-p","res":{"statusCode":404},"responseTime":1.4473749995231628,"msg":"request completed"}
+{"level":30,"time":1758701893170,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-q","res":{"statusCode":404},"responseTime":1.5005419999361038,"msg":"request completed"}
+{"level":30,"time":1758701898818,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-r","req":{"method":"GET","url":"/api/feeds/overview/000002.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55278},"msg":"incoming request"}
+{"level":30,"time":1758701898820,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-r","res":{"statusCode":200},"responseTime":1.7247919999063015,"msg":"request completed"}
+{"level":30,"time":1758701898826,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-s","req":{"method":"GET","url":"/api/valuation/000002.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55279},"msg":"incoming request"}
+{"level":30,"time":1758701898827,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-s","res":{"statusCode":404},"responseTime":0.872665997594595,"msg":"request completed"}
+{"level":30,"time":1758701898834,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-t","req":{"method":"GET","url":"/api/feeds/kline/000002.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55280},"msg":"incoming request"}
+{"level":30,"time":1758701898835,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-u","req":{"method":"GET","url":"/api/valuation/000002.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55281},"msg":"incoming request"}
+{"level":30,"time":1758701898835,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-v","req":{"method":"GET","url":"/api/valuation/ai-score/000002.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55282},"msg":"incoming request"}
+{"level":30,"time":1758701898835,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-w","req":{"method":"GET","url":"/api/valuation/dcf/000002.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55283},"msg":"incoming request"}
+{"level":30,"time":1758701898836,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-u","res":{"statusCode":404},"responseTime":0.5142909996211529,"msg":"request completed"}
+{"level":30,"time":1758701898836,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-v","res":{"statusCode":404},"responseTime":0.5255000032484531,"msg":"request completed"}
+{"level":30,"time":1758701898836,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-w","res":{"statusCode":404},"responseTime":0.5088750012218952,"msg":"request completed"}
+{"level":30,"time":1758701898836,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-t","res":{"statusCode":200},"responseTime":1.6614169999957085,"msg":"request completed"}
+{"level":30,"time":1758701910369,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-x","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55292},"msg":"incoming request"}
+{"level":30,"time":1758701910369,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-x","msg":"Route GET:/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94 not found"}
+{"level":30,"time":1758701910370,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-x","res":{"statusCode":404},"responseTime":0.5368329994380474,"msg":"request completed"}
+{"level":30,"time":1758701911716,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-y","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55294},"msg":"incoming request"}
+{"level":30,"time":1758701911716,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-y","msg":"Route GET:/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94 not found"}
+{"level":30,"time":1758701911717,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-y","res":{"statusCode":404},"responseTime":0.4426249973475933,"msg":"request completed"}
+{"level":30,"time":1758701913632,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-z","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55296},"msg":"incoming request"}
+{"level":30,"time":1758701913632,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-z","msg":"Route GET:/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94 not found"}
+{"level":30,"time":1758701913632,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-z","res":{"statusCode":404},"responseTime":0.29920899868011475,"msg":"request completed"}
+{"level":30,"time":1758701914118,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-10","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55298},"msg":"incoming request"}
+{"level":30,"time":1758701914118,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-10","msg":"Route GET:/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94 not found"}
+{"level":30,"time":1758701914118,"pid":80125,"hostname":"Mac.mshome.net","reqId":"req-10","res":{"statusCode":404},"responseTime":0.23545899987220764,"msg":"request completed"}
+5:27:17 PM [tsx] change in ./src/modules/feeds/routes.ts Restarting...
+c[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+{"level":30,"time":1758702437771,"pid":98670,"hostname":"Mac.mshome.net","msg":"Feed update tasks are disabled by FEEDS_DISABLE_TASKS"}
+{"level":30,"time":1758702437779,"pid":98670,"hostname":"Mac.mshome.net","msg":"Server listening at http://127.0.0.1:3002"}
+{"level":30,"time":1758702437779,"pid":98670,"hostname":"Mac.mshome.net","msg":"Server listening at http://192.168.137.232:3002"}
+{"level":30,"time":1758702465286,"pid":98670,"hostname":"Mac.mshome.net","reqId":"req-1","req":{"method":"GET","url":"/api/feeds/search?q=%E8%B4%B5%E5%B7%9E","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55362},"msg":"incoming request"}
+{"level":30,"time":1758702465305,"pid":98670,"hostname":"Mac.mshome.net","reqId":"req-1","res":{"statusCode":200},"responseTime":18.527458000928164,"msg":"request completed"}
+{"level":30,"time":1758702471343,"pid":98670,"hostname":"Mac.mshome.net","reqId":"req-2","req":{"method":"GET","url":"/api/feeds/search?q=%E8%8C%85%E5%8F%B0","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55365},"msg":"incoming request"}
+{"level":30,"time":1758702471348,"pid":98670,"hostname":"Mac.mshome.net","reqId":"req-2","res":{"statusCode":200},"responseTime":4.656458001583815,"msg":"request completed"}
+{"level":30,"time":1758702709595,"pid":98670,"hostname":"Mac.mshome.net","reqId":"req-3","req":{"method":"GET","url":"/api/feeds/search?q=ping%20an","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55393},"msg":"incoming request"}
+{"level":30,"time":1758702709603,"pid":98670,"hostname":"Mac.mshome.net","reqId":"req-3","res":{"statusCode":200},"responseTime":7.978458002209663,"msg":"request completed"}
+{"level":30,"time":1758702819909,"pid":98670,"hostname":"Mac.mshome.net","reqId":"req-4","req":{"method":"GET","url":"/api/feeds/search?q=%E5%B9%B3%E5%AE%89","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55400},"msg":"incoming request"}
+{"level":30,"time":1758702819920,"pid":98670,"hostname":"Mac.mshome.net","reqId":"req-4","res":{"statusCode":200},"responseTime":11.4415830001235,"msg":"request completed"}
+5:33:53 PM [tsx] change in ./src/modules/feeds/routes.ts Restarting...
+c[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+{"level":30,"time":1758702833352,"pid":2858,"hostname":"Mac.mshome.net","msg":"Feed update tasks are disabled by FEEDS_DISABLE_TASKS"}
+{"level":30,"time":1758702833356,"pid":2858,"hostname":"Mac.mshome.net","msg":"Server listening at http://127.0.0.1:3002"}
+{"level":30,"time":1758702833356,"pid":2858,"hostname":"Mac.mshome.net","msg":"Server listening at http://192.168.137.232:3002"}
+{"level":30,"time":1758703171354,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-1","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55434},"msg":"incoming request"}
+{"level":30,"time":1758703171383,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-1","res":{"statusCode":200},"responseTime":28.409166999161243,"msg":"request completed"}
+{"level":30,"time":1758703173901,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-2","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55437},"msg":"incoming request"}
+{"level":30,"time":1758703173910,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-2","res":{"statusCode":200},"responseTime":8.539374999701977,"msg":"request completed"}
+{"level":30,"time":1758703174153,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-3","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55439},"msg":"incoming request"}
+{"level":30,"time":1758703174159,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-3","res":{"statusCode":200},"responseTime":5.306667000055313,"msg":"request completed"}
+{"level":30,"time":1758703174351,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-4","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55441},"msg":"incoming request"}
+{"level":30,"time":1758703174358,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-4","res":{"statusCode":200},"responseTime":6.845499999821186,"msg":"request completed"}
+{"level":30,"time":1758703184263,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-5","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55451},"msg":"incoming request"}
+{"level":30,"time":1758703184271,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-5","res":{"statusCode":200},"responseTime":7.6360420025885105,"msg":"request completed"}
+{"level":30,"time":1758703186230,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-6","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55453},"msg":"incoming request"}
+{"level":30,"time":1758703186235,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-6","res":{"statusCode":200},"responseTime":5.396416001021862,"msg":"request completed"}
+{"level":30,"time":1758703186559,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-7","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55455},"msg":"incoming request"}
+{"level":30,"time":1758703186566,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-7","res":{"statusCode":200},"responseTime":6.359707999974489,"msg":"request completed"}
+{"level":30,"time":1758703186724,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-8","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55457},"msg":"incoming request"}
+{"level":30,"time":1758703186730,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-8","res":{"statusCode":200},"responseTime":5.686333000659943,"msg":"request completed"}
+{"level":30,"time":1758703233649,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-9","req":{"method":"GET","url":"/api/feeds/overview/000002.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55471},"msg":"incoming request"}
+{"level":30,"time":1758703233656,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-9","res":{"statusCode":200},"responseTime":7.003083001822233,"msg":"request completed"}
+{"level":30,"time":1758703233660,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-a","req":{"method":"GET","url":"/api/valuation/000002.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55474},"msg":"incoming request"}
+{"level":30,"time":1758703233669,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-a","res":{"statusCode":404},"responseTime":8.46416699886322,"msg":"request completed"}
+{"level":30,"time":1758703233674,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-b","req":{"method":"GET","url":"/api/feeds/kline/000002.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55480},"msg":"incoming request"}
+{"level":30,"time":1758703233678,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-c","req":{"method":"GET","url":"/api/valuation/000002.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55481},"msg":"incoming request"}
+{"level":30,"time":1758703233678,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-d","req":{"method":"GET","url":"/api/valuation/ai-score/000002.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55482},"msg":"incoming request"}
+{"level":30,"time":1758703233679,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-c","res":{"statusCode":404},"responseTime":0.9869170002639294,"msg":"request completed"}
+{"level":30,"time":1758703233679,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-b","res":{"statusCode":200},"responseTime":5.109875001013279,"msg":"request completed"}
+{"level":30,"time":1758703233679,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-e","req":{"method":"GET","url":"/api/valuation/dcf/000002.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55483},"msg":"incoming request"}
+{"level":30,"time":1758703233680,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-e","res":{"statusCode":404},"responseTime":0.7641250006854534,"msg":"request completed"}
+{"level":30,"time":1758703233684,"pid":2858,"hostname":"Mac.mshome.net","reqId":"req-d","res":{"statusCode":404},"responseTime":5.663249999284744,"msg":"request completed"}
+5:42:07 PM [tsx] change in ./src/modules/feeds/routes.ts Restarting...
+c[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+{"level":30,"time":1758703327628,"pid":6570,"hostname":"Mac.mshome.net","msg":"Feed update tasks are disabled by FEEDS_DISABLE_TASKS"}
+{"level":30,"time":1758703327633,"pid":6570,"hostname":"Mac.mshome.net","msg":"Server listening at http://127.0.0.1:3002"}
+{"level":30,"time":1758703327633,"pid":6570,"hostname":"Mac.mshome.net","msg":"Server listening at http://192.168.137.232:3002"}
+{"level":30,"time":1758703353678,"pid":6570,"hostname":"Mac.mshome.net","reqId":"req-1","req":{"method":"GET","url":"/api/feeds/hot?limit=6","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55523},"msg":"incoming request"}
+{"level":30,"time":1758703353699,"pid":6570,"hostname":"Mac.mshome.net","reqId":"req-1","res":{"statusCode":200},"responseTime":20.78066699951887,"msg":"request completed"}
+5:42:45 PM [tsx] change in ./src/modules/feeds/routes.ts Restarting...
+c[dotenv@17.2.2] injecting env (0) from .env -- tip: 📡 auto-backup env with Radar: https://dotenvx.com/radar
+{"level":30,"time":1758703365595,"pid":6960,"hostname":"Mac.mshome.net","msg":"Feed update tasks are disabled by FEEDS_DISABLE_TASKS"}
+{"level":30,"time":1758703365600,"pid":6960,"hostname":"Mac.mshome.net","msg":"Server listening at http://127.0.0.1:3002"}
+{"level":30,"time":1758703365600,"pid":6960,"hostname":"Mac.mshome.net","msg":"Server listening at http://192.168.137.232:3002"}
+{"level":30,"time":1758703376813,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-1","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55536},"msg":"incoming request"}
+{"level":30,"time":1758703376846,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-1","res":{"statusCode":200},"responseTime":33.03466700017452,"msg":"request completed"}
+{"level":30,"time":1758703380475,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-2","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55539},"msg":"incoming request"}
+{"level":30,"time":1758703380485,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-2","res":{"statusCode":200},"responseTime":9.290582999587059,"msg":"request completed"}
+{"level":30,"time":1758703380933,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-3","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55541},"msg":"incoming request"}
+{"level":30,"time":1758703380940,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-3","res":{"statusCode":200},"responseTime":6.767875000834465,"msg":"request completed"}
+{"level":30,"time":1758703381099,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-4","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55543},"msg":"incoming request"}
+{"level":30,"time":1758703381105,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-4","res":{"statusCode":200},"responseTime":5.633875001221895,"msg":"request completed"}
+{"level":30,"time":1758703381424,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-5","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55545},"msg":"incoming request"}
+{"level":30,"time":1758703381432,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-5","res":{"statusCode":200},"responseTime":8.494417000561953,"msg":"request completed"}
+{"level":30,"time":1758703381602,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-6","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55547},"msg":"incoming request"}
+{"level":30,"time":1758703381609,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-6","res":{"statusCode":200},"responseTime":6.656541001051664,"msg":"request completed"}
+{"level":30,"time":1758703381758,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-7","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55549},"msg":"incoming request"}
+{"level":30,"time":1758703381763,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-7","res":{"statusCode":200},"responseTime":5.197916999459267,"msg":"request completed"}
+{"level":30,"time":1758703383267,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-8","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55551},"msg":"incoming request"}
+{"level":30,"time":1758703383274,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-8","res":{"statusCode":200},"responseTime":6.866583000868559,"msg":"request completed"}
+{"level":30,"time":1758703383411,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-9","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55553},"msg":"incoming request"}
+{"level":30,"time":1758703383417,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-9","res":{"statusCode":200},"responseTime":6.145917002111673,"msg":"request completed"}
+{"level":30,"time":1758703389661,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-a","req":{"method":"GET","url":"/api/feeds/search?q=%E6%AF%94%E4%BA%9A%E8%BF%AA","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55556},"msg":"incoming request"}
+{"level":30,"time":1758703389668,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-a","res":{"statusCode":200},"responseTime":6.1760409995913506,"msg":"request completed"}
+{"level":30,"time":1758703391788,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-b","req":{"method":"GET","url":"/api/feeds/search?q=%E6%AF%94%E4%BA%9A%E8%BF%AA","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55558},"msg":"incoming request"}
+{"level":30,"time":1758703391794,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-b","res":{"statusCode":200},"responseTime":5.29679099842906,"msg":"request completed"}
+{"level":30,"time":1758703391957,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-c","req":{"method":"GET","url":"/api/feeds/search?q=%E6%AF%94%E4%BA%9A%E8%BF%AA","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55560},"msg":"incoming request"}
+{"level":30,"time":1758703391962,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-c","res":{"statusCode":200},"responseTime":4.331750001758337,"msg":"request completed"}
+{"level":30,"time":1758703392138,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-d","req":{"method":"GET","url":"/api/feeds/search?q=%E6%AF%94%E4%BA%9A%E8%BF%AA","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55562},"msg":"incoming request"}
+{"level":30,"time":1758703392144,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-d","res":{"statusCode":200},"responseTime":5.698249999433756,"msg":"request completed"}
+{"level":30,"time":1758703433323,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-e","req":{"method":"GET","url":"/api/feeds/search?q=%E6%AF%94%E4%BA%9A%E8%BF%AA","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55566},"msg":"incoming request"}
+{"level":30,"time":1758703433340,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-e","res":{"statusCode":200},"responseTime":16.002916999161243,"msg":"request completed"}
+{"level":30,"time":1758703433483,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-f","req":{"method":"GET","url":"/api/feeds/search?q=%E6%AF%94%E4%BA%9A%E8%BF%AA","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55569},"msg":"incoming request"}
+{"level":30,"time":1758703433488,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-f","res":{"statusCode":200},"responseTime":5.451875001192093,"msg":"request completed"}
+{"level":30,"time":1758703433631,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-g","req":{"method":"GET","url":"/api/feeds/search?q=%E6%AF%94%E4%BA%9A%E8%BF%AA","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55571},"msg":"incoming request"}
+{"level":30,"time":1758703433637,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-g","res":{"statusCode":200},"responseTime":5.568083003163338,"msg":"request completed"}
+{"level":30,"time":1758703433796,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-h","req":{"method":"GET","url":"/api/feeds/search?q=%E6%AF%94%E4%BA%9A%E8%BF%AA","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55573},"msg":"incoming request"}
+{"level":30,"time":1758703433804,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-h","res":{"statusCode":200},"responseTime":7.132124997675419,"msg":"request completed"}
+{"level":30,"time":1758703433920,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-i","req":{"method":"GET","url":"/api/feeds/search?q=%E6%AF%94%E4%BA%9A%E8%BF%AA","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55575},"msg":"incoming request"}
+{"level":30,"time":1758703433925,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-i","res":{"statusCode":200},"responseTime":4.359332997351885,"msg":"request completed"}
+{"level":30,"time":1758703516096,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-j","req":{"method":"GET","url":"/api/feeds/hot?limit=9","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55626},"msg":"incoming request"}
+{"level":30,"time":1758703516106,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-j","res":{"statusCode":200},"responseTime":10.193082999438047,"msg":"request completed"}
+{"level":30,"time":1758703529379,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-k","req":{"method":"GET","url":"/api/feeds/hot?limit=9","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55646},"msg":"incoming request"}
+{"level":30,"time":1758703529388,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-k","res":{"statusCode":200},"responseTime":8.91091700270772,"msg":"request completed"}
+{"level":30,"time":1758703551090,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-l","req":{"method":"GET","url":"/api/feeds/search?q=%E5%B9%B3%E5%AE%89","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55662},"msg":"incoming request"}
+{"level":30,"time":1758703551101,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-l","res":{"statusCode":200},"responseTime":11.111042000353336,"msg":"request completed"}
+{"level":30,"time":1758703563750,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-m","req":{"method":"GET","url":"/api/feeds/hot?limit=9","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55673},"msg":"incoming request"}
+{"level":30,"time":1758703563765,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-m","res":{"statusCode":200},"responseTime":15.095166999846697,"msg":"request completed"}
+{"level":30,"time":1758703577798,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-n","req":{"method":"GET","url":"/api/feeds/hot?limit=9","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55692},"msg":"incoming request"}
+{"level":30,"time":1758703577806,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-n","res":{"statusCode":200},"responseTime":7.944083001464605,"msg":"request completed"}
+{"level":30,"time":1758703582804,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-o","req":{"method":"GET","url":"/api/feeds/search?q=%E5%87%AF%E7%BE%8E%E7%89%B9%E6%B0%94","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55696},"msg":"incoming request"}
+{"level":30,"time":1758703582810,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-o","res":{"statusCode":200},"responseTime":5.7270420007407665,"msg":"request completed"}
+{"level":30,"time":1758703584991,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-p","req":{"method":"GET","url":"/api/feeds/overview/002549.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55698},"msg":"incoming request"}
+{"level":30,"time":1758703584994,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-p","res":{"statusCode":200},"responseTime":3.0292499996721745,"msg":"request completed"}
+{"level":30,"time":1758703585004,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-q","req":{"method":"GET","url":"/api/valuation/002549.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55700},"msg":"incoming request"}
+{"level":30,"time":1758703585009,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-q","res":{"statusCode":404},"responseTime":5.21433399990201,"msg":"request completed"}
+{"level":30,"time":1758703585016,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-r","req":{"method":"GET","url":"/api/feeds/kline/002549.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55706},"msg":"incoming request"}
+{"level":30,"time":1758703585020,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-s","req":{"method":"GET","url":"/api/valuation/002549.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55707},"msg":"incoming request"}
+{"level":30,"time":1758703585021,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-t","req":{"method":"GET","url":"/api/valuation/ai-score/002549.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55708},"msg":"incoming request"}
+{"level":30,"time":1758703585022,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-s","res":{"statusCode":404},"responseTime":1.941166002303362,"msg":"request completed"}
+{"level":30,"time":1758703585023,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-r","res":{"statusCode":200},"responseTime":6.411208000034094,"msg":"request completed"}
+{"level":30,"time":1758703585023,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-u","req":{"method":"GET","url":"/api/valuation/dcf/002549.SZ","host":"127.0.0.1:3002","remoteAddress":"127.0.0.1","remotePort":55709},"msg":"incoming request"}
+{"level":30,"time":1758703585024,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-u","res":{"statusCode":404},"responseTime":0.8019159995019436,"msg":"request completed"}
+{"level":30,"time":1758703585027,"pid":6960,"hostname":"Mac.mshome.net","reqId":"req-t","res":{"statusCode":404},"responseTime":6.445750001817942,"msg":"request completed"}

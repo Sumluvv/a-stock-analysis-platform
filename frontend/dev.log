@@ -1,0 +1,25 @@
+
+> @infostream/frontend@1.0.0 dev
+> vite
+
+[33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+
+  VITE v5.4.20  ready in 114 ms
+
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: use --host to expose
+(node:60198) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/liao/infostream-mvp/frontend/postcss.config.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/liao/infostream-mvp/frontend/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+4:18:28 PM [vite] hmr update /src/components/KLineChart.tsx, /src/styles/index.css
+4:18:42 PM [vite] hmr update /src/components/KLineChart.tsx, /src/styles/index.css
+4:26:24 PM [vite] hmr update /src/pages/StockDetailPage.tsx, /src/styles/index.css
+4:26:38 PM [vite] hmr update /src/pages/StockDetailPage.tsx, /src/styles/index.css
+4:26:53 PM [vite] hmr update /src/pages/StockDetailPage.tsx, /src/styles/index.css
+4:28:43 PM [vite] hmr update /src/components/ValuationPanel.tsx, /src/styles/index.css
+4:28:55 PM [vite] hmr update /src/components/ValuationPanel.tsx, /src/styles/index.css
+4:30:45 PM [vite] hmr update /src/components/ValuationPanel.tsx, /src/styles/index.css
+4:30:55 PM [vite] hmr update /src/components/ValuationPanel.tsx, /src/styles/index.css
+4:31:53 PM [vite] hmr update /src/components/TechnicalIndicators.tsx, /src/styles/index.css
+4:32:08 PM [vite] hmr update /src/components/TechnicalIndicators.tsx, /src/styles/index.css

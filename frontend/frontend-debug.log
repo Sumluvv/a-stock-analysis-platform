@@ -1,0 +1,14 @@
+
+> @infostream/frontend@1.0.0 dev
+> vite --host 127.0.0.1 --port 3001
+
+[33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+
+  VITE v5.4.20  ready in 92 ms
+
+  ➜  Local:   http://127.0.0.1:3001/
+  ➜  press h + enter to show help
+(node:79340) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/liao/infostream-mvp/frontend/postcss.config.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/liao/infostream-mvp/frontend/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)

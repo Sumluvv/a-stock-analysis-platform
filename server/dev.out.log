@@ -1,0 +1,18 @@
+
+> @infostream/server@1.0.0 dev
+> tsx watch src/index.ts
+
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+实时更新任务已启动: RSS每10秒, 网页RSS每20分钟
+FastifyError [Error]: Method 'POST' already declared for route '/api/feeds/webpage-snapshot'
+    at Object.addNewRoute (/Users/liao/infostream-mvp/server/node_modules/fastify/lib/route.js:359:19)
+    at Object.route (/Users/liao/infostream-mvp/server/node_modules/fastify/lib/route.js:263:19)
+    at Object.prepareRoute (/Users/liao/infostream-mvp/server/node_modules/fastify/lib/route.js:163:18)
+    at Object._post [as post] (/Users/liao/infostream-mvp/server/node_modules/fastify/fastify.js:285:34)
+    at feedRoutes (/Users/liao/infostream-mvp/server/src/modules/feeds/routes.ts:911:7)
+    at Plugin.exec (/Users/liao/infostream-mvp/server/node_modules/avvio/lib/plugin.js:125:28)
+    at Boot._loadPlugin (/Users/liao/infostream-mvp/server/node_modules/avvio/boot.js:432:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'FST_ERR_DUPLICATED_ROUTE',
+  statusCode: 500
+}
