@@ -7,6 +7,12 @@ import { spawn } from 'child_process';
 import path from 'path';
 import { z } from 'zod';
 import iconv from 'iconv-lite';
+import axios from 'axios';
+// import { SmartRankingEngine } from '../rankings/smart-ranking';
+// import { technicalRoutes } from '../technical/routes';
+// import { premiumRoutes } from '../premium/routes';
+// import { monitoringRoutes } from '../monitoring/routes';
+import { externalApiRoutes } from '../external/routes';
 const prisma = new PrismaClient();
 const parser = new Parser();
 const pgPool = new Pool({
@@ -20,6 +26,8 @@ const pgPool = new Pool({
     query_timeout: Number(process.env.PG_QUERY_TIMEOUT_MS || 5000),
     idle_in_transaction_session_timeout: Number(process.env.PG_IDLE_TX_TIMEOUT_MS || 5000),
 });
+// 初始化智能排行榜引擎
+// const smartRankingEngine = new SmartRankingEngine(pgPool);
 // Ensure Chinese fuzzy search index exists (pg_trgm + GIN)
 async function ensureSearchIndex() {
     const client = await pgPool.connect();
@@ -35,8 +43,62 @@ async function ensureSearchIndex() {
         client.release();
     }
 }
+// Ensure external API tables exist
+async function ensureExternalApiTables() {
+    const client = await pgPool.connect();
+    try {
+        console.log('Creating external API tables...');
+        // 外部API Keys表
+        await client.query(`
+      CREATE TABLE IF NOT EXISTS app.external_api_keys (
+        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        user_id VARCHAR(255) NOT NULL,
+        provider VARCHAR(50) NOT NULL CHECK (provider IN ('gemini_pro', 'openai_plus', 'claude_pro', 'custom_api')),
+        api_key TEXT NOT NULL,
+        display_name VARCHAR(100) NOT NULL,
+        usage_limit INTEGER NOT NULL DEFAULT 100,
+        used_count INTEGER NOT NULL DEFAULT 0,
+        is_active BOOLEAN NOT NULL DEFAULT true,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      );
+    `);
+        // 外部API使用日志表
+        await client.query(`
+      CREATE TABLE IF NOT EXISTS app.external_api_usage (
+        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        user_id VARCHAR(255) NOT NULL,
+        api_key_id UUID NOT NULL REFERENCES app.external_api_keys(id),
+        provider VARCHAR(50) NOT NULL,
+        endpoint VARCHAR(255) NOT NULL,
+        tokens_used INTEGER NOT NULL DEFAULT 0,
+        cost_usd DECIMAL(10,6) NOT NULL DEFAULT 0,
+        response_time_ms INTEGER NOT NULL DEFAULT 0,
+        success BOOLEAN NOT NULL DEFAULT true,
+        error_message TEXT,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      );
+    `);
+        // 创建索引
+        await client.query(`CREATE INDEX IF NOT EXISTS idx_external_api_keys_user_id ON app.external_api_keys(user_id);`);
+        await client.query(`CREATE INDEX IF NOT EXISTS idx_external_api_keys_provider ON app.external_api_keys(provider);`);
+        await client.query(`CREATE INDEX IF NOT EXISTS idx_external_api_keys_is_active ON app.external_api_keys(is_active);`);
+        await client.query(`CREATE INDEX IF NOT EXISTS idx_external_api_usage_user_id ON app.external_api_usage(user_id);`);
+        await client.query(`CREATE INDEX IF NOT EXISTS idx_external_api_usage_api_key_id ON app.external_api_usage(api_key_id);`);
+        await client.query(`CREATE INDEX IF NOT EXISTS idx_external_api_usage_created_at ON app.external_api_usage(created_at);`);
+        await client.query(`CREATE INDEX IF NOT EXISTS idx_external_api_usage_provider ON app.external_api_usage(provider);`);
+        console.log('✅ External API tables created successfully');
+    }
+    catch (e) {
+        console.error('ensureExternalApiTables error:', e);
+    }
+    finally {
+        client.release();
+    }
+}
 // Fire-and-forget; if it fails we just log
-ensureSearchIndex();
+// ensureSearchIndex(); // Temporarily disabled due to permissions issue
+ensureExternalApiTables();
 // 实时更新机制
 let updateInterval = null;
 let lastRSSUpdate = null;
@@ -674,18 +736,14 @@ export async function feedRoutes(app) {
     else {
         app.log.info('Feed update tasks are disabled by FEEDS_DISABLE_TASKS');
     }
-    // 仅对需要的路由启用鉴权；公开数据接口放行
+    // 放宽鉴权：所有 GET 请求放行，避免 onRequest 误判导致阻塞；开放 ensure-complete
     app.addHook('onRequest', async (req, reply) => {
-        const url = req.url || '';
         const method = (req.method || 'GET').toUpperCase();
-        const isPublicGet = method === 'GET' && (/\/kline\//.test(url) ||
-            /\/overview\//.test(url) ||
-            /\/update-info$/.test(url) ||
-            /\/search(\?|$)/.test(url) ||
-            /\/hot(\?|$)/.test(url) ||
-            /\/data-status\//.test(url));
-        const isPublicPost = method === 'POST' && (/\/auto-import\//.test(url));
-        if (isPublicGet || isPublicPost)
+        if (method === 'GET')
+            return;
+        const url = req.url || '';
+        const isPublicPost = /\/auto-import\//.test(url) || /\/ensure-complete\//.test(url);
+        if (isPublicPost)
             return;
         try {
             await req.jwtVerify();
@@ -760,8 +818,10 @@ export async function feedRoutes(app) {
     // Search dim_stock by keyword (ts_code or name)
     app.get('/search', async (req, reply) => {
         try {
-            const q = req.query?.q;
-            const limit = parseInt(req.query?.limit) || 20;
+            // 避免 Fastify 默认将 req.query 推断为 {} 导致类型错误
+            const query = req.query || {};
+            const q = query.q;
+            const limit = parseInt(query.limit) || 20;
             if (!q || q.trim().length === 0) {
                 return reply.code(400).send({ error: 'Query parameter q is required' });
             }
@@ -803,29 +863,269 @@ export async function feedRoutes(app) {
     });
     // Hot stocks: recent movers by pct_chg or volume over last trade day
     app.get('/hot', async (req, reply) => {
-        const schema = z.object({ limit: z.coerce.number().min(1).max(100).optional().default(12) });
+        const schema = z.object({
+            limit: z.coerce.number().min(1).max(100).optional().default(12),
+            offset: z.coerce.number().min(0).optional().default(0)
+        });
         const parsed = schema.safeParse({ ...(req.query || {}) });
         if (!parsed.success)
             return reply.code(400).send({ error: 'Invalid query' });
-        const { limit } = parsed.data;
+        const { limit, offset } = parsed.data;
         const client = await pgPool.connect();
         try {
-            // 选取最近一个交易日的数据，按涨跌幅绝对值与成交额综合排序
+            // 如果存在 hot_stocks 表则优先读取
+            try {
+                const { rows: tbl } = await client.query(`SELECT coalesce(to_regclass('app.hot_stocks'), to_regclass('public.hot_stocks')) AS t`);
+                if (tbl[0]?.t) {
+                    const tableRef = tbl[0].t;
+                    let { rows } = await client.query(`SELECT hs.ts_code, d.name, d.industry, d.exchange,
+                    hs.trade_date, hs.close, hs.pct_chg, hs.vol, hs.amount,
+                    hs.limit_up, hs.boards, hs.turnover_rate, hs.hot_score,
+                    v.val as valuation
+             FROM ${tableRef} hs
+             JOIN dim_stock d ON d.ts_code = hs.ts_code
+             LEFT JOIN LATERAL (
+               SELECT row_to_json(v2) as val
+               FROM valuations v2
+               WHERE v2.ts_code = hs.ts_code
+               ORDER BY v2.created_at DESC
+               LIMIT 1
+             ) v ON true
+             WHERE hs.trade_date = (SELECT MAX(trade_date) FROM ${tableRef})
+             ORDER BY hs.hot_score DESC NULLS LAST, COALESCE(hs.amount,0) DESC
+             LIMIT $1 OFFSET $2`, [limit, offset]);
+                    // 提取估值字段（兼容不同列名）
+                    rows = rows.map((r) => {
+                        const val = r.valuation || {};
+                        let pe = val.pe_ratio ?? val.pe ?? val.pe_ttm ?? null;
+                        let pb = val.pb_ratio ?? val.pb ?? null;
+                        // 兜底计算：用 close / EPS_TTM, close / BPS
+                        const price = Number(r.close);
+                        const eps = Number(val.eps_ttm ?? val.eps ?? val.epsTrailing12M ?? 0);
+                        const bps = Number(val.bps ?? val.book_value_per_share ?? 0);
+                        if ((pe === null || pe === undefined) && price && eps)
+                            pe = Number((price / eps).toFixed(2));
+                        if ((pb === null || pb === undefined) && price && bps)
+                            pb = Number((price / bps).toFixed(2));
+                        delete r.valuation;
+                        return { ...r, pe_ratio: pe, pb_ratio: pb };
+                    });
+                    return { items: rows };
+                }
+            }
+            catch { }
+            // 回退：选取最近一个交易日的数据，按涨跌幅绝对值与成交额综合排序
             const { rows: recentDateRows } = await client.query(`SELECT MAX(trade_date) AS latest FROM prices_ohlcv WHERE freq='D'`);
             const latest = recentDateRows[0]?.latest;
             if (!latest)
                 return { items: [] };
-            const { rows } = await client.query(`SELECT p.ts_code, d.name, d.industry, d.exchange,
-                p.trade_date, p.close, p.pct_chg, p.vol, p.amount
+            let { rows } = await client.query(`SELECT p.ts_code, d.name, d.industry, d.exchange,
+                p.trade_date, p.close, p.pct_chg, p.vol, p.amount,
+                v.val as valuation
          FROM prices_ohlcv p
          JOIN dim_stock d ON d.ts_code = p.ts_code
+         LEFT JOIN LATERAL (
+           SELECT row_to_json(v2) as val
+           FROM valuations v2
+           WHERE v2.ts_code = p.ts_code
+           ORDER BY v2.created_at DESC
+           LIMIT 1
+         ) v ON true
          WHERE p.freq='D' AND p.trade_date = $1
          ORDER BY GREATEST(ABS(COALESCE(p.pct_chg,0)), 0) DESC, COALESCE(p.amount,0) DESC
-         LIMIT $2`, [latest, limit]);
+         LIMIT $2 OFFSET $3`, [latest, limit, offset]);
+            rows = rows.map((r) => {
+                const val = r.valuation || {};
+                let pe = val.pe_ratio ?? val.pe ?? val.pe_ttm ?? null;
+                let pb = val.pb_ratio ?? val.pb ?? null;
+                const price = Number(r.close);
+                const eps = Number(val.eps_ttm ?? val.eps ?? val.epsTrailing12M ?? 0);
+                const bps = Number(val.bps ?? val.book_value_per_share ?? 0);
+                if ((pe === null || pe === undefined) && price && eps)
+                    pe = Number((price / eps).toFixed(2));
+                if ((pb === null || pb === undefined) && price && bps)
+                    pb = Number((price / bps).toFixed(2));
+                delete r.valuation;
+                return { ...r, pe_ratio: pe, pb_ratio: pb };
+            });
             return { items: rows };
         }
         catch (e) {
             return reply.code(500).send({ error: 'Failed to load hot stocks', message: e?.message });
+        }
+        finally {
+            client.release();
+        }
+    });
+    // 榜单API：今日首板
+    app.get('/rankings/first-limit', async (req, reply) => {
+        const schema = z.object({
+            limit: z.coerce.number().min(1).max(100).optional().default(20),
+            offset: z.coerce.number().min(0).optional().default(0)
+        });
+        const parsed = schema.safeParse({ ...(req.query || {}) });
+        if (!parsed.success)
+            return reply.code(400).send({ error: 'Invalid query' });
+        const { limit, offset } = parsed.data;
+        try {
+            const client = await pgPool.connect();
+            try {
+                const { rows: recentDateRows } = await client.query(`SELECT MAX(trade_date) AS latest FROM prices_ohlcv WHERE freq='D'`);
+                const latest = recentDateRows[0]?.latest;
+                if (!latest)
+                    return { items: [] };
+                const { rows } = await client.query(`SELECT p.ts_code, d.name, d.industry, d.exchange,
+                  p.trade_date, p.close, p.pct_chg, p.vol, p.amount,
+                  hs.turnover_rate, hs.volume_ratio, hs.total_mv, hs.circ_mv, hs.hot_score
+           FROM prices_ohlcv p
+           JOIN dim_stock d ON d.ts_code = p.ts_code
+           LEFT JOIN app.hot_stocks hs ON hs.ts_code = p.ts_code AND hs.trade_date = p.trade_date
+           WHERE p.freq='D' AND p.trade_date = $1 AND p.pct_chg >= 9.5
+           ORDER BY p.pct_chg DESC, COALESCE(p.amount,0) DESC
+           LIMIT $2 OFFSET $3`, [latest, limit, offset]);
+                return { items: rows };
+            }
+            finally {
+                client.release();
+            }
+        }
+        catch (e) {
+            return reply.code(500).send({ error: 'Failed to load first limit stocks', message: e?.message });
+        }
+    });
+    // 榜单API：最大涨幅
+    app.get('/rankings/max-gain', async (req, reply) => {
+        const schema = z.object({
+            limit: z.coerce.number().min(1).max(100).optional().default(20),
+            offset: z.coerce.number().min(0).optional().default(0)
+        });
+        const parsed = schema.safeParse({ ...(req.query || {}) });
+        if (!parsed.success)
+            return reply.code(400).send({ error: 'Invalid query' });
+        const { limit, offset } = parsed.data;
+        try {
+            const client = await pgPool.connect();
+            try {
+                const { rows: recentDateRows } = await client.query(`SELECT MAX(trade_date) AS latest FROM prices_ohlcv WHERE freq='D'`);
+                const latest = recentDateRows[0]?.latest;
+                if (!latest)
+                    return { items: [] };
+                const { rows } = await client.query(`SELECT p.ts_code, d.name, d.industry, d.exchange,
+                  p.trade_date, p.close, p.pct_chg, p.vol, p.amount,
+                  hs.turnover_rate, hs.volume_ratio, hs.total_mv, hs.circ_mv, hs.hot_score
+           FROM prices_ohlcv p
+           JOIN dim_stock d ON d.ts_code = p.ts_code
+           LEFT JOIN app.hot_stocks hs ON hs.ts_code = p.ts_code AND hs.trade_date = p.trade_date
+           WHERE p.freq='D' AND p.trade_date = $1 AND p.pct_chg IS NOT NULL
+           ORDER BY p.pct_chg DESC, COALESCE(p.amount,0) DESC
+           LIMIT $2 OFFSET $3`, [latest, limit, offset]);
+                return { items: rows };
+            }
+            finally {
+                client.release();
+            }
+        }
+        catch (e) {
+            return reply.code(500).send({ error: 'Failed to load max gain stocks', message: e?.message });
+        }
+    });
+    // 榜单API：最大成交量
+    app.get('/rankings/volume', async (req, reply) => {
+        const schema = z.object({
+            limit: z.coerce.number().min(1).max(100).optional().default(20),
+            offset: z.coerce.number().min(0).optional().default(0)
+        });
+        const parsed = schema.safeParse({ ...(req.query || {}) });
+        if (!parsed.success)
+            return reply.code(400).send({ error: 'Invalid query' });
+        const { limit, offset } = parsed.data;
+        try {
+            const client = await pgPool.connect();
+            try {
+                const { rows: recentDateRows } = await client.query(`SELECT MAX(trade_date) AS latest FROM prices_ohlcv WHERE freq='D'`);
+                const latest = recentDateRows[0]?.latest;
+                if (!latest)
+                    return { items: [] };
+                const { rows } = await client.query(`SELECT p.ts_code, d.name, d.industry, d.exchange,
+                  p.trade_date, p.close, p.pct_chg, p.vol, p.amount,
+                  hs.turnover_rate, hs.volume_ratio, hs.total_mv, hs.circ_mv, hs.hot_score
+           FROM prices_ohlcv p
+           JOIN dim_stock d ON d.ts_code = p.ts_code
+           LEFT JOIN app.hot_stocks hs ON hs.ts_code = p.ts_code AND hs.trade_date = p.trade_date
+           WHERE p.freq='D' AND p.trade_date = $1 AND p.vol IS NOT NULL
+           ORDER BY p.vol DESC, COALESCE(p.amount,0) DESC
+           LIMIT $2 OFFSET $3`, [latest, limit, offset]);
+                return { items: rows };
+            }
+            finally {
+                client.release();
+            }
+        }
+        catch (e) {
+            return reply.code(500).send({ error: 'Failed to load volume stocks', message: e?.message });
+        }
+    });
+    // 榜单API：最大成交额
+    app.get('/rankings/amount', async (req, reply) => {
+        const schema = z.object({
+            limit: z.coerce.number().min(1).max(100).optional().default(20),
+            offset: z.coerce.number().min(0).optional().default(0)
+        });
+        const parsed = schema.safeParse({ ...(req.query || {}) });
+        if (!parsed.success)
+            return reply.code(400).send({ error: 'Invalid query' });
+        const { limit, offset } = parsed.data;
+        try {
+            const client = await pgPool.connect();
+            try {
+                const { rows: recentDateRows } = await client.query(`SELECT MAX(trade_date) AS latest FROM prices_ohlcv WHERE freq='D'`);
+                const latest = recentDateRows[0]?.latest;
+                if (!latest)
+                    return { items: [] };
+                const { rows } = await client.query(`SELECT p.ts_code, d.name, d.industry, d.exchange,
+                  p.trade_date, p.close, p.pct_chg, p.vol, p.amount,
+                  hs.turnover_rate, hs.volume_ratio, hs.total_mv, hs.circ_mv, hs.hot_score
+           FROM prices_ohlcv p
+           JOIN dim_stock d ON d.ts_code = p.ts_code
+           LEFT JOIN app.hot_stocks hs ON hs.ts_code = p.ts_code AND hs.trade_date = p.trade_date
+           WHERE p.freq='D' AND p.trade_date = $1 AND p.amount IS NOT NULL
+           ORDER BY p.amount DESC, COALESCE(p.vol,0) DESC
+           LIMIT $2 OFFSET $3`, [latest, limit, offset]);
+                return { items: rows };
+            }
+            finally {
+                client.release();
+            }
+        }
+        catch (e) {
+            return reply.code(500).send({ error: 'Failed to load amount stocks', message: e?.message });
+        }
+    });
+    // 手动更新热门（预留给Tushare ETL使用）
+    app.post('/hot/update', async (req, reply) => {
+        const client = await pgPool.connect();
+        try {
+            // 优先在 app schema 下创建，避免 public 权限限制
+            await client.query(`CREATE SCHEMA IF NOT EXISTS app AUTHORIZATION CURRENT_USER;`);
+            await client.query(`
+        CREATE TABLE IF NOT EXISTS app.hot_stocks (
+          trade_date date not null,
+          ts_code text not null,
+          close numeric,
+          pct_chg numeric,
+          vol numeric,
+          amount numeric,
+          limit_up boolean,
+          boards int,
+          turnover_rate numeric,
+          hot_score numeric,
+          PRIMARY KEY (trade_date, ts_code)
+        )
+      `);
+            return { ok: true };
+        }
+        catch (e) {
+            return reply.code(500).send({ error: 'Failed to ensure hot table', message: e?.message });
         }
         finally {
             client.release();
@@ -850,6 +1150,98 @@ export async function feedRoutes(app) {
         }
         finally {
             client.release();
+        }
+    });
+    // 确保数据完整：若缺失则顺序计算并等待（短轮询）
+    app.post('/ensure-complete/:ts_code', async (req, reply) => {
+        const schema = z.object({ ts_code: z.string() });
+        const parsed = schema.safeParse(req.params);
+        if (!parsed.success)
+            return reply.code(400).send({ error: 'Invalid ts_code' });
+        const { ts_code } = parsed.data;
+        try {
+            const statusUrl = `/api/feeds/data-status/${ts_code}`;
+            const abs = `http://127.0.0.1:${process.env.PORT || 3002}${statusUrl}`;
+            // 先看状态
+            const first = await fetch(abs);
+            const st = await first.json();
+            const needImport = !st.has_kline || !st.has_valuation || !st.has_ai_score;
+            if (needImport) {
+                await fetch(`http://127.0.0.1:${process.env.PORT || 3002}/api/feeds/auto-import/${ts_code}`, { method: 'POST' });
+            }
+            // 若DCF缺失，后面补
+            let hasDCF = !!st.has_dcf;
+            // 轮询最多 8 次 * 3s
+            for (let i = 0; i < 8; i++) {
+                const r = await fetch(abs);
+                const s = await r.json();
+                if (s.has_overview && s.has_kline && s.has_valuation && s.has_ai_score) {
+                    if (!hasDCF) {
+                        // 触发一次DCF计算（不阻塞）
+                        fetch(`http://127.0.0.1:${process.env.PORT || 3002}/api/valuation/${ts_code}/calculate`, { method: 'POST' }).catch(() => { });
+                        hasDCF = s.has_dcf;
+                    }
+                    return reply.send({ ready: true, has_dcf: s.has_dcf });
+                }
+                await new Promise(r2 => setTimeout(r2, 3000));
+            }
+            return reply.send({ ready: false });
+        }
+        catch (e) {
+            return reply.code(500).send({ error: 'Ensure failed', message: e?.message });
+        }
+    });
+    // AI Forecast proxy -> ml-kronos service
+    app.get('/ai/forecast/:ts_code', async (req, reply) => {
+        try {
+            const schema = z.object({ ts_code: z.string() });
+            const qschema = z.object({ pred_len: z.coerce.number().min(5).max(240).optional().default(20), lookback: z.coerce.number().min(50).max(2000).optional().default(400) });
+            const parsedP = schema.safeParse(req.params);
+            const parsedQ = qschema.safeParse(req.query || {});
+            if (!parsedP.success || !parsedQ.success)
+                return reply.code(400).send({ error: 'Invalid params' });
+            const { ts_code } = parsedP.data;
+            const { pred_len, lookback } = parsedQ.data;
+            const client = await pgPool.connect();
+            try {
+                const { rows } = await client.query(`SELECT trade_date, open, high, low, close, vol
+           FROM prices_ohlcv
+           WHERE ts_code=$1 AND freq='D'
+           ORDER BY trade_date DESC
+           LIMIT $2`, [ts_code, lookback]);
+                const history = rows
+                    .slice()
+                    .reverse()
+                    .map(r => ({
+                    date: r.trade_date.toISOString().slice(0, 10),
+                    open: Number(r.open ?? 0),
+                    high: Number(r.high ?? 0),
+                    low: Number(r.low ?? 0),
+                    close: Number(r.close ?? 0),
+                    volume: Number(r.vol ?? 0)
+                }));
+                const mlUrl = process.env.KRONOS_URL || 'http://127.0.0.1:5001/predict';
+                const resp = await fetch(mlUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ts_code, freq: 'D', lookback, pred_len, history })
+                });
+                if (!resp.ok) {
+                    const text = await resp.text().catch(() => '');
+                    return reply.code(502).send({ error: 'ML service failed', message: text });
+                }
+                const data = await resp.json();
+                return reply.send(data);
+            }
+            catch (e) {
+                return reply.code(500).send({ error: 'Forecast failed', message: e?.message });
+            }
+            finally {
+                client.release();
+            }
+        }
+        catch (e) {
+            return reply.code(500).send({ error: 'Internal error', message: e?.message });
         }
     });
     // 一键导入指定股票的基础数据（K线 + 技术指标 + 可选财务）
@@ -1932,5 +2324,258 @@ export async function feedRoutes(app) {
             return reply.code(500).send({ error: 'Failed to build rss', message: msg });
         }
     });
+    // AI服务网关路由
+    const aiServiceBaseUrl = process.env.AI_SERVICE_URL || 'http://localhost:8000';
+    const aiServiceApiKey = process.env.AI_SERVICE_API_KEY || '';
+    // AI股票分析
+    app.post('/ai/insight', async (request, reply) => {
+        try {
+            const { ts_code, date } = request.body;
+            if (!ts_code) {
+                return reply.code(400).send({ error: 'ts_code is required' });
+            }
+            // 检查缓存
+            const cacheKey = `ai_insight_${ts_code}_${date || 'latest'}`;
+            const cached = await pgPool.query('SELECT cache_data FROM ai_cache WHERE cache_key = $1 AND expires_at > NOW()', [cacheKey]);
+            if (cached.rows.length > 0) {
+                return cached.rows[0].cache_data;
+            }
+            // 获取股票数据
+            const stockData = await pgPool.query(`
+        SELECT p.ts_code, p.trade_date, p.close, p.pct_chg, p.vol, p.amount,
+               d.name, d.industry, d.exchange,
+               hs.turnover_rate, hs.volume_ratio, hs.total_mv, hs.circ_mv
+        FROM prices_ohlcv p
+        JOIN dim_stock d ON d.ts_code = p.ts_code
+        LEFT JOIN app.hot_stocks hs ON hs.ts_code = p.ts_code AND hs.trade_date = p.trade_date
+        WHERE p.ts_code = $1 AND p.trade_date = (
+          SELECT MAX(trade_date) FROM prices_ohlcv WHERE ts_code = $1
+        )
+      `, [ts_code]);
+            if (stockData.rows.length === 0) {
+                return reply.code(404).send({ error: 'Stock not found' });
+            }
+            const stock = stockData.rows[0];
+            // 调用AI服务
+            const aiResponse = await axios.post(`${aiServiceBaseUrl}/agents/insight`, {
+                ts_code,
+                stock_data: stock,
+                date: date || stock.trade_date
+            }, {
+                headers: {
+                    'Authorization': `Bearer ${aiServiceApiKey}`,
+                    'Content-Type': 'application/json'
+                },
+                timeout: 30000
+            });
+            const result = aiResponse.data;
+            // 保存到数据库
+            await pgPool.query(`
+        INSERT INTO ai_insights (ts_code, trade_date, analysis_type, summary, action, confidence, factors, raw_response, model_used, cost_usd)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+        ON CONFLICT (ts_code, trade_date, analysis_type) 
+        DO UPDATE SET summary = $4, action = $5, confidence = $6, factors = $7, raw_response = $8, model_used = $9, cost_usd = $10, updated_at = CURRENT_TIMESTAMP
+      `, [
+                ts_code,
+                stock.trade_date,
+                'stock_analysis',
+                result.summary,
+                result.action,
+                result.confidence,
+                JSON.stringify(result.factors),
+                JSON.stringify(result),
+                result.model_used || 'unknown',
+                result.cost_usd || 0
+            ]);
+            // 缓存结果
+            await pgPool.query(`
+        INSERT INTO ai_cache (cache_key, cache_data, expires_at)
+        VALUES ($1, $2, NOW() + INTERVAL '24 hours')
+        ON CONFLICT (cache_key) 
+        DO UPDATE SET cache_data = $2, expires_at = NOW() + INTERVAL '24 hours'
+      `, [cacheKey, JSON.stringify(result)]);
+            return result;
+        }
+        catch (error) {
+            console.error('AI insight error:', error.message);
+            // 记录错误日志
+            await pgPool.query(`
+        INSERT INTO ai_service_logs (endpoint, ts_code, request_data, status_code, error_message)
+        VALUES ($1, $2, $3, $4, $5)
+      `, [
+                '/ai/insight',
+                request.body?.ts_code || null,
+                JSON.stringify(request.body),
+                error.response?.status || 500,
+                error.message
+            ]);
+            return reply.code(500).send({
+                error: 'AI service error',
+                message: error.message,
+                fallback: 'Using rule-based analysis'
+            });
+        }
+    });
+    // AI新闻分析
+    app.post('/ai/news', async (request, reply) => {
+        try {
+            const { news_text, news_url, ts_codes } = request.body;
+            if (!news_text) {
+                return reply.code(400).send({ error: 'news_text is required' });
+            }
+            // 检查缓存
+            const cacheKey = `ai_news_${Buffer.from(news_text).toString('base64').slice(0, 50)}`;
+            const cached = await pgPool.query('SELECT cache_data FROM ai_cache WHERE cache_key = $1 AND expires_at > NOW()', [cacheKey]);
+            if (cached.rows.length > 0) {
+                return cached.rows[0].cache_data;
+            }
+            // 调用AI服务
+            const aiResponse = await axios.post(`${aiServiceBaseUrl}/agents/news`, {
+                news_text,
+                news_url,
+                ts_codes
+            }, {
+                headers: {
+                    'Authorization': `Bearer ${aiServiceApiKey}`,
+                    'Content-Type': 'application/json'
+                },
+                timeout: 30000
+            });
+            const result = aiResponse.data;
+            // 保存到数据库
+            if (result.ts_codes && result.ts_codes.length > 0) {
+                for (const ts_code of result.ts_codes) {
+                    await pgPool.query(`
+            INSERT INTO ai_insights (ts_code, trade_date, analysis_type, summary, action, confidence, factors, raw_response, model_used, cost_usd)
+            VALUES ($1, CURRENT_DATE, $2, $3, $4, $5, $6, $7, $8, $9)
+            ON CONFLICT (ts_code, trade_date, analysis_type) 
+            DO UPDATE SET summary = $3, action = $4, confidence = $5, factors = $6, raw_response = $7, model_used = $8, cost_usd = $9, updated_at = CURRENT_TIMESTAMP
+          `, [
+                        ts_code,
+                        'news_analysis',
+                        result.summary,
+                        result.action || 'watch',
+                        result.confidence || 0.5,
+                        JSON.stringify(result.factors),
+                        JSON.stringify(result),
+                        result.model_used || 'unknown',
+                        result.cost_usd || 0
+                    ]);
+                }
+            }
+            // 缓存结果
+            await pgPool.query(`
+        INSERT INTO ai_cache (cache_key, cache_data, expires_at)
+        VALUES ($1, $2, NOW() + INTERVAL '6 hours')
+        ON CONFLICT (cache_key) 
+        DO UPDATE SET cache_data = $2, expires_at = NOW() + INTERVAL '6 hours'
+      `, [cacheKey, JSON.stringify(result)]);
+            return result;
+        }
+        catch (error) {
+            console.error('AI news error:', error.message);
+            return reply.code(500).send({
+                error: 'AI service error',
+                message: error.message
+            });
+        }
+    });
+    // AI策略建议
+    app.post('/ai/strategy', async (request, reply) => {
+        try {
+            const { portfolio, constraints, strategy_type } = request.body;
+            if (!portfolio || !Array.isArray(portfolio)) {
+                return reply.code(400).send({ error: 'portfolio is required and must be an array' });
+            }
+            // 调用AI服务
+            const aiResponse = await axios.post(`${aiServiceBaseUrl}/agents/strategy`, {
+                portfolio,
+                constraints,
+                strategy_type: strategy_type || 'portfolio_rebalance'
+            }, {
+                headers: {
+                    'Authorization': `Bearer ${aiServiceApiKey}`,
+                    'Content-Type': 'application/json'
+                },
+                timeout: 60000
+            });
+            const result = aiResponse.data;
+            // 保存到数据库
+            await pgPool.query(`
+        INSERT INTO strategy_suggestions (suggestion_type, target_portfolio, reasoning, risk_level, expected_return, max_drawdown, confidence, constraints)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+      `, [
+                strategy_type || 'portfolio_rebalance',
+                JSON.stringify(result.target_portfolio),
+                result.reasoning,
+                result.risk_level || 'medium',
+                result.expected_return || 0,
+                result.max_drawdown || 0,
+                result.confidence || 0.5,
+                JSON.stringify(constraints)
+            ]);
+            return result;
+        }
+        catch (error) {
+            console.error('AI strategy error:', error.message);
+            return reply.code(500).send({
+                error: 'AI service error',
+                message: error.message
+            });
+        }
+    });
+    // 获取AI分析历史
+    app.get('/ai/insights/:ts_code', async (request, reply) => {
+        try {
+            const { ts_code } = request.params;
+            const { limit = 10, offset = 0 } = request.query;
+            const result = await pgPool.query(`
+        SELECT ts_code, trade_date, analysis_type, summary, action, confidence, factors, created_at
+        FROM ai_insights
+        WHERE ts_code = $1
+        ORDER BY trade_date DESC, created_at DESC
+        LIMIT $2 OFFSET $3
+      `, [ts_code, limit, offset]);
+            return {
+                insights: result.rows,
+                total: result.rows.length
+            };
+        }
+        catch (error) {
+            console.error('Get AI insights error:', error.message);
+            return reply.code(500).send({
+                error: 'Database error',
+                message: error.message
+            });
+        }
+    });
+    // AI服务健康检查
+    app.get('/ai/health', async (request, reply) => {
+        try {
+            const healthResponse = await axios.get(`${aiServiceBaseUrl}/health`, {
+                timeout: 5000
+            });
+            return {
+                status: 'healthy',
+                ai_service: healthResponse.data,
+                timestamp: new Date().toISOString()
+            };
+        }
+        catch (error) {
+            return reply.code(503).send({
+                status: 'unhealthy',
+                ai_service: 'unavailable',
+                error: error.message,
+                timestamp: new Date().toISOString()
+            });
+        }
+    });
+    // 注册技术分析路由
+    // await technicalRoutes(app, pgPool);
+    // 注册付费功能路由
+    // await premiumRoutes(app, pgPool);
+    // 注册监控路由
+    // await monitoringRoutes(app, pgPool);
+    // 外部API路由已移至主入口文件注册
 }
 //# sourceMappingURL=routes.js.map

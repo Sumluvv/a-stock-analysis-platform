@@ -25,9 +25,9 @@ source .venv/bin/activate
 
 # Check if dependencies are installed
 echo "📦 Checking dependencies..."
-if ! python -c "import torch, transformers, pandas, numpy" &> /dev/null; then
+if ! python3 -c "import torch, transformers, pandas, numpy" &> /dev/null; then
     echo "⚠️  Missing dependencies, installing..."
-    python -m pip install -r requirements.txt
+    python3 -m pip install -r requirements.txt
     if [ $? -ne 0 ]; then
         echo "❌ Dependencies installation failed"
         exit 1
@@ -44,4 +44,4 @@ echo ""
 
 # Start the webui service
 cd webui
-python app.py
+python3 app.py

@@ -8,6 +8,122 @@ const pool = new Pool({
     password: process.env.PGPASSWORD || 'infostream',
 });
 export async function valuationRoutes(fastify) {
+    // 列出可用估值方法与默认参数
+    fastify.get('/methods/:ts_code', async (request, reply) => {
+        const { ts_code } = request.params;
+        try {
+            const client = await pool.connect();
+            try {
+                const q = await client.query(`SELECT 
+          MAX(CASE WHEN metric_name = 'eps' THEN metric_value END) as eps,
+          MAX(CASE WHEN metric_name = 'bps' THEN metric_value END) as bps,
+          MAX(CASE WHEN metric_name = 'growth_rate' THEN metric_value END) as growth_rate,
+          MAX(CASE WHEN metric_name = 'ebitda' THEN metric_value END) as ebitda,
+          MAX(CASE WHEN metric_name = 'net_debt' THEN metric_value END) as net_debt,
+          MAX(CASE WHEN metric_name = 'shares_outstanding' THEN metric_value END) as shares_outstanding
+        FROM fin_metrics WHERE ts_code=$1`, [ts_code]);
+                const base = q.rows[0] || {};
+                const eps = Number(base.eps || 0);
+                const bps = Number(base.bps || 0);
+                const growth = Number(base.growth_rate || 0.15);
+                const ebitda = Number(base.ebitda || 0);
+                const netDebt = Number(base.net_debt || 0);
+                const shares = Number(base.shares_outstanding || 0);
+                return reply.send({
+                    ts_code,
+                    methods: [
+                        { key: 'PE', name: '市盈率(PE)', defaults: { eps, target_pe: 15, low_pe: 10, high_pe: 25 } },
+                        { key: 'PB', name: '市净率(PB)', defaults: { bps, target_pb: 1.8, low_pb: 1.2, high_pb: 3 } },
+                        { key: 'PEG', name: 'PEG简化', defaults: { eps, growth, k: 1.0 } },
+                        { key: 'EVEBITDA', name: 'EV/EBITDA', defaults: { ebitda, target_multiple: 8, low_multiple: 6, high_multiple: 12, net_debt: netDebt, shares_outstanding: shares } },
+                    ]
+                });
+            }
+            finally {
+                client.release();
+            }
+        }
+        catch (e) {
+            fastify.log.error(e);
+            return reply.code(500).send({ error: 'Failed to load methods' });
+        }
+    });
+    // 通用计算接口
+    fastify.post('/calc/:ts_code', async (request, reply) => {
+        const { ts_code } = request.params;
+        const body = (request.body || {});
+        const method = String(body.method || '').toUpperCase();
+        try {
+            const client = await pool.connect();
+            try {
+                const priceRes = await client.query(`SELECT close FROM prices_ohlcv WHERE ts_code=$1 ORDER BY trade_date DESC LIMIT 1`, [ts_code]);
+                const currentPrice = Number(priceRes.rows[0]?.close || 0);
+                const resp = { ts_code, method, current_price: currentPrice };
+                if (method === 'PE') {
+                    const eps = Number(body.eps ?? 0);
+                    const targetPe = Number(body.target_pe ?? 15);
+                    const lowPe = Number(body.low_pe ?? Math.max(5, targetPe * 0.7));
+                    const highPe = Number(body.high_pe ?? Math.max(targetPe * 1.3, targetPe + 2));
+                    const value = targetPe * eps;
+                    resp.value = value;
+                    resp.range = { low: lowPe * eps, high: highPe * eps };
+                    resp.paramsUsed = { eps, target_pe: targetPe, low_pe: lowPe, high_pe: highPe };
+                    resp.commentary = { inputs: `EPS=${eps}, 目标PE=${targetPe}`, caveats: 'EPS与PE为静态输入，建议结合成长性', suggestion: '' };
+                    return reply.send(resp);
+                }
+                if (method === 'PB') {
+                    const bps = Number(body.bps ?? 0);
+                    const targetPb = Number(body.target_pb ?? 1.8);
+                    const lowPb = Number(body.low_pb ?? Math.max(0.8, targetPb * 0.7));
+                    const highPb = Number(body.high_pb ?? Math.max(targetPb * 1.3, targetPb + 0.5));
+                    const value = targetPb * bps;
+                    resp.value = value;
+                    resp.range = { low: lowPb * bps, high: highPb * bps };
+                    resp.paramsUsed = { bps, target_pb: targetPb, low_pb: lowPb, high_pb: highPb };
+                    resp.commentary = { inputs: `BPS=${bps}, 目标PB=${targetPb}`, caveats: 'BPS未考虑资产质量', suggestion: '' };
+                    return reply.send(resp);
+                }
+                if (method === 'PEG') {
+                    const eps = Number(body.eps ?? 0);
+                    const growth = Number(body.growth ?? 0.15);
+                    const k = Number(body.k ?? 1.0);
+                    const targetPe = Math.max(1, k * (growth * 100));
+                    const value = targetPe * eps;
+                    resp.value = value;
+                    resp.range = { low: value * 0.8, high: value * 1.2 };
+                    resp.paramsUsed = { eps, growth, k, target_pe: targetPe };
+                    resp.commentary = { inputs: `EPS=${eps}, 增速=${growth}`, caveats: 'PEG简化仅为启发式', suggestion: '' };
+                    return reply.send(resp);
+                }
+                if (method === 'EVEBITDA') {
+                    const ebitda = Number(body.ebitda ?? 0);
+                    const multiple = Number(body.target_multiple ?? 8);
+                    const lowM = Number(body.low_multiple ?? Math.max(1, multiple * 0.75));
+                    const highM = Number(body.high_multiple ?? Math.max(multiple * 1.25, multiple + 1));
+                    const netDebt = Number(body.net_debt ?? 0);
+                    const shares = Number(body.shares_outstanding ?? 0);
+                    const ev = multiple * ebitda;
+                    const equity = ev - netDebt;
+                    const perShare = shares > 0 ? equity / shares : NaN;
+                    resp.value = perShare;
+                    const lowPS = shares > 0 ? (lowM * ebitda - netDebt) / shares : NaN;
+                    const highPS = shares > 0 ? (highM * ebitda - netDebt) / shares : NaN;
+                    resp.range = { low: lowPS, high: highPS };
+                    resp.paramsUsed = { ebitda, target_multiple: multiple, low_multiple: lowM, high_multiple: highM, net_debt: netDebt, shares_outstanding: shares };
+                    resp.commentary = { inputs: `EBITDA=${ebitda}, 倍数=${multiple}, 净负债=${netDebt}, 股本=${shares}`, caveats: '若EBITDA/净负债/股本不全，请手动输入', suggestion: '' };
+                    return reply.send(resp);
+                }
+                return reply.code(400).send({ error: 'Unsupported method' });
+            }
+            finally {
+                client.release();
+            }
+        }
+        catch (e) {
+            fastify.log.error(e);
+            return reply.code(500).send({ error: 'Calculation failed' });
+        }
+    });
     // 获取股票估值信息
     fastify.get('/:ts_code', async (request, reply) => {
         const { ts_code } = request.params;
